@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CATC Scenario Documentation</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body data-scenario="0">
+
+<!-- Sidebar (injected by shared.js) -->
+<div id="sidebar-root"></div>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div style="display:flex; align-items:center; gap:0.8rem;">
+        <button class="sidebar-toggle" onclick="toggleSidebar()">&#9776; <span class="sidebar-toggle-label" data-i18n="nav-scenarios">Scenarios</span></button>
+        <a href="index.html" data-i18n="nav-home" style="color:white; text-decoration:none; font-size:0.9rem; opacity:0.85;">CATC Scenarios</a>
+    </div>
+    <div class="nav-links">
+        <div class="lang-toggle">
+            <button class="lang-btn active" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" onclick="setLang('tr')">TR</button>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+    <h1 data-i18n="index-title">CATC Scenario Documentation</h1>
+    <p class="subtitle" data-i18n="index-subtitle">Interactive documentation for CATC alerts defined in EUROCONTROL Specification for A-SMGCS Services v2.0, Appendix B</p>
+    <div class="progress-container">
+        <p class="progress-label"><span id="progress-label"></span> <span data-i18n="index-progress">scenarios completed</span></p>
+        <div class="progress-track">
+            <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div id="scenario-grid" class="scenario-grid"></div>
+</div>
+
+<footer>
+    <p data-i18n="footer1">EUROCONTROL Specification for A-SMGCS Services &mdash; Edition 2.0 &mdash; Appendix B</p>
+    <p style="margin-top:0.3rem;" data-i18n="footer2">CATC (Conflicting ATC Clearances) Scenario Documentation</p>
+</footer>
+
+<script src="js/scenarios.js"></script>
+<script src="js/shared.js"></script>
+<script>
+var pageTranslations = { en: {}, tr: {} };
+initIndexPage();
+</script>
+
+</body>
+</html>

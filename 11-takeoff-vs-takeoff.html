@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CATC Scenario 11 - Take-Off vs Take-Off</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body data-scenario="11">
+
+<!-- Sidebar (injected by shared.js) -->
+<div id="sidebar-root"></div>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div style="display:flex; align-items:center; gap:0.8rem;">
+        <button class="sidebar-toggle" onclick="toggleSidebar()">&#9776; <span class="sidebar-toggle-label" data-i18n="nav-scenarios">Scenarios</span></button>
+        <a href="index.html" data-i18n="nav-home" style="color:white; text-decoration:none; font-size:0.9rem; opacity:0.85;">CATC Scenarios</a>
+    </div>
+    <div class="nav-links">
+        <div class="lang-toggle">
+            <button class="lang-btn active" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" onclick="setLang('tr')">TR</button>
+        </div>
+        <span class="scenario-badge" id="scenario-badge">Scenario 11 / 22</span>
+        <a id="nav-prev" href="10-takeoff-vs-cross.html">&larr; Prev</a>
+        <a id="nav-next" class="disabled">Next &rarr;</a>
+    </div>
+</nav>
+
+<!-- Pagination (injected by shared.js) -->
+<div id="pagination-root"></div>
+
+<!-- Hero -->
+<header class="hero">
+    <h1>Take-Off vs Take-Off</h1>
+    <p class="subtitle" data-i18n="hero-subtitle">An aircraft is given Take-Off while another aircraft is also given Take-Off on the same or crossing/converging runways</p>
+    <div class="clearance-tags">
+        <span class="clearance-tag">TAKE-OFF <span class="vs">vs</span> TAKE-OFF</span>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- Data Required -->
+    <section class="card">
+        <h2><span class="icon">&#128202;</span> <span data-i18n="section-data">Data Required</span></h2>
+        <div class="data-tags">
+            <span class="data-tag av-term" data-tooltip="Instructions issued by ATC" data-i18n="tag-clearances">Clearances</span>
+            <span class="data-tag av-term" data-tooltip="Designated runway information" data-i18n="tag-runway">Assigned Runway/s</span>
+            <span class="data-tag av-term" data-tooltip="Waiting point before runway entry" data-i18n="tag-hp">Holding Point</span>
+            <span class="data-tag av-term" data-tooltip="Radar/tracking data" data-i18n="tag-surv">Surveillance</span>
+        </div>
+    </section>
+
+    <!-- General Rule -->
+    <section class="card">
+        <h2><span class="icon">&#9888;&#65039;</span> <span data-i18n="section-rule">General Rule</span></h2>
+        <div class="rule-box" data-i18n="rule-text">
+            <strong>Important:</strong> In each scenario, it is deemed that the <strong>first Clearance</strong> in the heading title is the one that has been input by the Controller first and the <strong>second Clearance triggers</strong> the alert.
+        </div>
+    </section>
+
+    <!-- Alert Triggered -->
+    <section class="card">
+        <h2><span class="icon">&#128680;</span> <span data-i18n="section-alert">Alert Triggered</span></h2>
+
+        <!-- Single Runway sub-heading -->
+        <h3 data-i18n="sub-single">Single Runway</h3>
+
+        <!-- Situation 1 -->
+        <div class="situation">
+            <div class="situation-header">
+                <span class="situation-number">1</span>
+                <span class="situation-title" data-i18n="sit1-title">Second Aircraft Lined Up on Same Runway</span>
+            </div>
+            <div class="situation-body">
+                <p class="situation-description" data-i18n="sit1-desc">
+                    If <span class="callsign">IBE987</span> is given
+                    <span class="av-term" data-tooltip="Clearance for takeoff">Take-Off</span> and
+                    <span class="callsign">BAW456</span> is given
+                    <span class="av-term" data-tooltip="Clearance for takeoff">Take-Off</span>
+                    whilst lined up on the same runway.
+                </p>
+                <span class="conflict-result">&#9888; CONFLICT</span>
+
+                <div class="diagram-container">
+                    <svg width="700" height="260" viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Grass background -->
+                        <rect x="0" y="0" width="700" height="260" fill="#2d4a2d" rx="8"/>
+
+                        <!-- Runway -->
+                        <rect x="50" y="100" width="600" height="60" fill="#555" rx="4"/>
+                        <rect x="50" y="127" width="600" height="6" fill="#fff" opacity="0.3"/>
+                        <!-- Runway dashes -->
+                        <line x1="90" y1="130" x2="120" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="150" y1="130" x2="180" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="210" y1="130" x2="240" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="270" y1="130" x2="300" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="330" y1="130" x2="360" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="390" y1="130" x2="420" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="450" y1="130" x2="480" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="510" y1="130" x2="540" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="570" y1="130" x2="600" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+
+                        <!-- Runway labels -->
+                        <text x="58" y="137" fill="white" font-size="14" font-weight="bold">05</text>
+                        <text x="626" y="137" fill="white" font-size="14" font-weight="bold">23</text>
+
+                        <!-- IBE987 (Take-Off - existing, green) on runway heading right -->
+                        <g transform="translate(250, 130)">
+                            <polygon points="12,0 -8,-5 -4,0 -8,5" fill="#00cc44" stroke="#00ff55" stroke-width="1"/>
+                        </g>
+                        <rect x="215" y="103" width="55" height="18" fill="rgba(0,0,0,0.7)" rx="3"/>
+                        <text x="220" y="116" fill="#00ff55" font-size="11" font-weight="bold" font-family="monospace">IBE987</text>
+                        <text x="220" y="98" fill="#aaa" font-size="9" data-svg-i18n="svg-takeoff1">TAKE-OFF</text>
+
+                        <!-- IBE987 takeoff arrow -->
+                        <line x1="265" y1="130" x2="380" y2="130" stroke="#00cc44" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+                        <polygon points="385,130 375,125 375,135" fill="#00cc44" opacity="0.5"/>
+
+                        <!-- BAW456 (Take-Off - trigger, red) lined up behind on same runway -->
+                        <g transform="translate(150, 130)">
+                            <polygon points="12,0 -8,-5 -4,0 -8,5" fill="#ff4444" stroke="#ff6666" stroke-width="1"/>
+                        </g>
+                        <rect x="115" y="103" width="58" height="18" fill="rgba(0,0,0,0.7)" rx="3"/>
+                        <text x="120" y="116" fill="#ff6666" font-size="11" font-weight="bold" font-family="monospace">BAW456</text>
+                        <text x="120" y="98" fill="#aaa" font-size="9" data-svg-i18n="svg-takeoff2">TAKE-OFF</text>
+
+                        <!-- Conflict zone -->
+                        <circle cx="200" cy="130" r="14" fill="none" stroke="#ff4444" stroke-width="2.5" opacity="0.7"/>
+                        <text x="195" y="135" fill="#ff4444" font-size="14" font-weight="bold">!</text>
+
+                        <!-- CONFLICT label -->
+                        <rect x="100" y="6" width="120" height="24" fill="rgba(255,68,68,0.15)" stroke="#ff4444" stroke-width="1.5" rx="5"/>
+                        <text x="118" y="23" fill="#ff4444" font-size="12" font-weight="bold">CONFLICT</text>
+
+                        <!-- Legend -->
+                        <rect x="530" y="10" width="160" height="50" fill="rgba(0,0,0,0.5)" rx="5"/>
+                        <polygon points="545,23 540,35 545,31 550,35" fill="#00cc44"/>
+                        <text x="560" y="33" fill="#ccc" font-size="10" data-svg-i18n="svg-first">Take-Off (existing)</text>
+                        <polygon points="545,43 540,55 545,51 550,55" fill="#ff4444"/>
+                        <text x="560" y="53" fill="#ccc" font-size="10" data-svg-i18n="svg-second">Take-Off (trigger)</text>
+                    </svg>
+                </div>
+                <p class="diagram-label" data-i18n="sit1-diagram">Situation 1: IBE987 given Take-Off while BAW456 is given Take-Off whilst lined up on the same runway</p>
+            </div>
+        </div>
+
+        <!-- Situation 2 -->
+        <div class="situation">
+            <div class="situation-header">
+                <span class="situation-number">2</span>
+                <span class="situation-title" data-i18n="sit2-title">Second Aircraft at Holding Point, Same Direction</span>
+            </div>
+            <div class="situation-body">
+                <p class="situation-description" data-i18n="sit2-desc">
+                    If <span class="callsign">IBE987</span> is given
+                    <span class="av-term" data-tooltip="Clearance for takeoff">Take-Off</span> and
+                    <span class="callsign">AFR123</span> is given
+                    <span class="av-term" data-tooltip="Clearance for takeoff">Take-Off</span>
+                    whilst at a holding point on the same runway.
+                </p>
+                <span class="conflict-result">&#9888; CONFLICT</span>
+
+                <div class="diagram-container">
+                    <svg width="700" height="280" viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Grass background -->
+                        <rect x="0" y="0" width="700" height="280" fill="#2d4a2d" rx="8"/>
+
+                        <!-- Runway -->
+                        <rect x="50" y="110" width="600" height="60" fill="#555" rx="4"/>
+                        <rect x="50" y="137" width="600" height="6" fill="#fff" opacity="0.3"/>
+                        <!-- Runway dashes -->
+                        <line x1="90" y1="140" x2="120" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="150" y1="140" x2="180" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="210" y1="140" x2="240" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="270" y1="140" x2="300" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="330" y1="140" x2="360" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="390" y1="140" x2="420" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="450" y1="140" x2="480" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="510" y1="140" x2="540" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="570" y1="140" x2="600" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+
+                        <!-- Runway labels -->
+                        <text x="58" y="147" fill="white" font-size="14" font-weight="bold">05</text>
+                        <text x="626" y="147" fill="white" font-size="14" font-weight="bold">23</text>
+
+                        <!-- IBE987 (Take-Off - existing, green) on runway heading right -->
+                        <g transform="translate(300, 140)">
+                            <polygon points="12,0 -8,-5 -4,0 -8,5" fill="#00cc44" stroke="#00ff55" stroke-width="1"/>
+                        </g>
+                        <rect x="265" y="113" width="55" height="18" fill="rgba(0,0,0,0.7)" rx="3"/>
+                        <text x="270" y="126" fill="#00ff55" font-size="11" font-weight="bold" font-family="monospace">IBE987</text>
+                        <text x="270" y="108" fill="#aaa" font-size="9" data-svg-i18n="svg-takeoff1">TAKE-OFF</text>
+
+                        <!-- IBE987 takeoff arrow -->
+                        <line x1="315" y1="140" x2="450" y2="140" stroke="#00cc44" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+                        <polygon points="455,140 445,135 445,145" fill="#00cc44" opacity="0.5"/>
+
+                        <!-- Holding Point South - AFR123 -->
+                        <rect x="480" y="170" width="30" height="55" fill="#6b8a4a" rx="2"/>
+                        <line x1="475" y1="170" x2="515" y2="170" stroke="#ffcc00" stroke-width="3"/>
+                        <text x="458" y="240" fill="#ffcc00" font-size="10" font-weight="bold" data-svg-i18n="svg-hp-afr">HP (AFR123)</text>
+
+                        <!-- AFR123 (Take-Off - trigger, red) at holding point -->
+                        <g transform="translate(495, 200)">
+                            <polygon points="0,-12 -5,8 0,4 5,8" fill="#ff4444" stroke="#ff6666" stroke-width="1"/>
+                        </g>
+                        <rect x="510" y="190" width="55" height="18" fill="rgba(0,0,0,0.7)" rx="3"/>
+                        <text x="515" y="203" fill="#ff6666" font-size="11" font-weight="bold" font-family="monospace">AFR123</text>
+                        <text x="515" y="183" fill="#aaa" font-size="9" data-svg-i18n="svg-takeoff2">TAKE-OFF</text>
+
+                        <!-- Conflict zone -->
+                        <circle cx="495" cy="140" r="14" fill="none" stroke="#ff4444" stroke-width="2.5" opacity="0.7"/>
+                        <text x="490" y="145" fill="#ff4444" font-size="14" font-weight="bold">!</text>
+
+                        <!-- CONFLICT label -->
+                        <rect x="100" y="6" width="120" height="24" fill="rgba(255,68,68,0.15)" stroke="#ff4444" stroke-width="1.5" rx="5"/>
+                        <text x="118" y="23" fill="#ff4444" font-size="12" font-weight="bold">CONFLICT</text>
+
+                        <!-- Legend -->
+                        <rect x="530" y="10" width="160" height="50" fill="rgba(0,0,0,0.5)" rx="5"/>
+                        <polygon points="545,23 540,35 545,31 550,35" fill="#00cc44"/>
+                        <text x="560" y="33" fill="#ccc" font-size="10" data-svg-i18n="svg-first">Take-Off (existing)</text>
+                        <polygon points="545,43 540,55 545,51 550,55" fill="#ff4444"/>
+                        <text x="560" y="53" fill="#ccc" font-size="10" data-svg-i18n="svg-second">Take-Off (trigger)</text>
+                    </svg>
+                </div>
+                <p class="diagram-label" data-i18n="sit2-diagram">Situation 2: IBE987 given Take-Off while AFR123 is given Take-Off from a holding point on the same runway</p>
+            </div>
+        </div>
+
+        <!-- Situation 3 -->
+        <div class="situation">
+            <div class="situation-header">
+                <span class="situation-number">3</span>
+                <span class="situation-title" data-i18n="sit3-title">Second Aircraft at Holding Point, Opposite Direction</span>
+            </div>
+            <div class="situation-body">
+                <p class="situation-description" data-i18n="sit3-desc">
+                    If <span class="callsign">IBE987</span> is given
+                    <span class="av-term" data-tooltip="Clearance for takeoff">Take-Off</span> and
+                    <span class="callsign">KLM789</span> is given
+                    <span class="av-term" data-tooltip="Clearance for takeoff">Take-Off</span>
+                    whilst at a holding point on the same runway in the opposite direction.
+                </p>
+                <span class="conflict-result">&#9888; CONFLICT</span>
+
+                <div class="diagram-container">
+                    <svg width="700" height="280" viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Grass background -->
+                        <rect x="0" y="0" width="700" height="280" fill="#2d4a2d" rx="8"/>
+
+                        <!-- Runway -->
+                        <rect x="50" y="110" width="600" height="60" fill="#555" rx="4"/>
+                        <rect x="50" y="137" width="600" height="6" fill="#fff" opacity="0.3"/>
+                        <!-- Runway dashes -->
+                        <line x1="90" y1="140" x2="120" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="150" y1="140" x2="180" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="210" y1="140" x2="240" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="270" y1="140" x2="300" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="330" y1="140" x2="360" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="390" y1="140" x2="420" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="450" y1="140" x2="480" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="510" y1="140" x2="540" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="570" y1="140" x2="600" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+
+                        <!-- Runway labels -->
+                        <text x="58" y="147" fill="white" font-size="14" font-weight="bold">05</text>
+                        <text x="626" y="147" fill="white" font-size="14" font-weight="bold">23</text>
+
+                        <!-- IBE987 (Take-Off - existing, green) on runway left side heading right -->
+                        <g transform="translate(200, 140)">
+                            <polygon points="12,0 -8,-5 -4,0 -8,5" fill="#00cc44" stroke="#00ff55" stroke-width="1"/>
+                        </g>
+                        <rect x="165" y="113" width="55" height="18" fill="rgba(0,0,0,0.7)" rx="3"/>
+                        <text x="170" y="126" fill="#00ff55" font-size="11" font-weight="bold" font-family="monospace">IBE987</text>
+                        <text x="170" y="108" fill="#aaa" font-size="9" data-svg-i18n="svg-takeoff1">TAKE-OFF</text>
+
+                        <!-- IBE987 takeoff arrow -->
+                        <line x1="215" y1="140" x2="340" y2="140" stroke="#00cc44" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+                        <polygon points="345,140 335,135 335,145" fill="#00cc44" opacity="0.5"/>
+
+                        <!-- Holding Point at opposite end (runway 23) - KLM789 -->
+                        <rect x="570" y="55" width="30" height="55" fill="#6b8a4a" rx="2"/>
+                        <line x1="565" y1="110" x2="605" y2="110" stroke="#ffcc00" stroke-width="3"/>
+                        <text x="545" y="48" fill="#ffcc00" font-size="10" font-weight="bold" data-svg-i18n="svg-hp-klm">HP (KLM789)</text>
+
+                        <!-- KLM789 (Take-Off - trigger, red) at opposite holding point -->
+                        <g transform="translate(585, 80)">
+                            <polygon points="0,12 -5,-8 0,-4 5,-8" fill="#ff4444" stroke="#ff6666" stroke-width="1"/>
+                        </g>
+                        <rect x="598" y="70" width="58" height="18" fill="rgba(0,0,0,0.7)" rx="3"/>
+                        <text x="603" y="83" fill="#ff6666" font-size="11" font-weight="bold" font-family="monospace">KLM789</text>
+                        <text x="603" y="63" fill="#aaa" font-size="9" data-svg-i18n="svg-takeoff2">TAKE-OFF</text>
+
+                        <!-- Opposite direction indicator -->
+                        <text x="310" y="95" fill="#ff8888" font-size="10" font-weight="bold" opacity="0.7" data-svg-i18n="svg-opposite">OPPOSITE DIRECTION</text>
+
+                        <!-- Conflict zone -->
+                        <circle cx="400" cy="140" r="14" fill="none" stroke="#ff4444" stroke-width="2.5" opacity="0.7"/>
+                        <text x="395" y="145" fill="#ff4444" font-size="14" font-weight="bold">!</text>
+
+                        <!-- CONFLICT label -->
+                        <rect x="100" y="6" width="120" height="24" fill="rgba(255,68,68,0.15)" stroke="#ff4444" stroke-width="1.5" rx="5"/>
+                        <text x="118" y="23" fill="#ff4444" font-size="12" font-weight="bold">CONFLICT</text>
+
+                        <!-- Legend -->
+                        <rect x="530" y="215" width="160" height="50" fill="rgba(0,0,0,0.5)" rx="5"/>
+                        <polygon points="545,228 540,240 545,236 550,240" fill="#00cc44"/>
+                        <text x="560" y="238" fill="#ccc" font-size="10" data-svg-i18n="svg-first">Take-Off (existing)</text>
+                        <polygon points="545,248 540,260 545,256 550,260" fill="#ff4444"/>
+                        <text x="560" y="258" fill="#ccc" font-size="10" data-svg-i18n="svg-second">Take-Off (trigger)</text>
+                    </svg>
+                </div>
+                <p class="diagram-label" data-i18n="sit3-diagram">Situation 3: IBE987 given Take-Off while KLM789 is given Take-Off from a holding point in the opposite direction</p>
+            </div>
+        </div>
+
+        <!-- Crossing/Converging Runways sub-heading -->
+        <h3 data-i18n="sub-crossing">Crossing/Converging Runways</h3>
+
+        <!-- Situation 4 -->
+        <div class="situation">
+            <div class="situation-header">
+                <span class="situation-number">4</span>
+                <span class="situation-title" data-i18n="sit4-title">Take-Off from Intersecting Runway (Ground Trajectories Converging)</span>
+            </div>
+            <div class="situation-body">
+                <p class="situation-description" data-i18n="sit4-desc">
+                    If <span class="callsign">IBE987</span> is given
+                    <span class="av-term" data-tooltip="Clearance for takeoff">Take-Off</span> and
+                    <span class="callsign">BAW456</span> is given
+                    <span class="av-term" data-tooltip="Clearance for takeoff">Take-Off</span>
+                    from a runway that intersects/crosses the runway being used by IBE987. When the aircraft ground trajectories are converging an alert is triggered.
+                </p>
+                <span class="conflict-result">&#9888; CONFLICT</span>
+
+                <div class="diagram-container">
+                    <svg width="700" height="320" viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Grass background -->
+                        <rect x="0" y="0" width="700" height="320" fill="#2d4a2d" rx="8"/>
+
+                        <!-- Runway 1 (horizontal) -->
+                        <rect x="50" y="140" width="600" height="50" fill="#555" rx="4"/>
+                        <rect x="50" y="162" width="600" height="6" fill="#fff" opacity="0.3"/>
+                        <text x="58" y="172" fill="white" font-size="13" font-weight="bold">05</text>
+                        <text x="626" y="172" fill="white" font-size="13" font-weight="bold">23</text>
+
+                        <!-- Runway 2 (diagonal, crossing) -->
+                        <g transform="translate(380, 165) rotate(-50)">
+                            <rect x="-180" y="-25" width="360" height="50" fill="#555" rx="4" opacity="0.85"/>
+                            <rect x="-180" y="-2" width="360" height="6" fill="#fff" opacity="0.3"/>
+                        </g>
+                        <text x="240" y="30" fill="white" font-size="13" font-weight="bold">36</text>
+                        <text x="485" y="305" fill="white" font-size="13" font-weight="bold">18</text>
+
+                        <!-- IBE987 (existing, green) on runway 05/23 heading right -->
+                        <g transform="translate(200, 165)">
+                            <polygon points="12,0 -8,-5 -4,0 -8,5" fill="#00cc44" stroke="#00ff55" stroke-width="1"/>
+                        </g>
+                        <rect x="165" y="138" width="55" height="18" fill="rgba(0,0,0,0.7)" rx="3"/>
+                        <text x="170" y="151" fill="#00ff55" font-size="11" font-weight="bold" font-family="monospace">IBE987</text>
+                        <text x="170" y="133" fill="#aaa" font-size="9" data-svg-i18n="svg-takeoff1">TAKE-OFF</text>
+
+                        <!-- IBE987 takeoff arrow -->
+                        <line x1="215" y1="165" x2="320" y2="165" stroke="#00cc44" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+                        <polygon points="325,165 315,160 315,170" fill="#00cc44" opacity="0.5"/>
+
+                        <!-- BAW456 (trigger, red) on crossing runway -->
+                        <g transform="translate(310, 85)">
+                            <polygon points="4,12 -1,-8 4,-4 9,-8" fill="#ff4444" stroke="#ff6666" stroke-width="1"/>
+                        </g>
+                        <rect x="325" y="72" width="58" height="18" fill="rgba(0,0,0,0.7)" rx="3"/>
+                        <text x="330" y="85" fill="#ff6666" font-size="11" font-weight="bold" font-family="monospace">BAW456</text>
+                        <text x="330" y="65" fill="#aaa" font-size="9" data-svg-i18n="svg-takeoff2">TAKE-OFF</text>
+
+                        <!-- BAW456 takeoff arrow toward intersection -->
+                        <line x1="314" y1="100" x2="345" y2="140" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+                        <polygon points="348,144 338,138 344,148" fill="#ff4444" opacity="0.5"/>
+
+                        <!-- Conflict zone at intersection -->
+                        <circle cx="370" cy="165" r="16" fill="none" stroke="#ff4444" stroke-width="2.5" opacity="0.7"/>
+                        <text x="365" y="170" fill="#ff4444" font-size="14" font-weight="bold">!</text>
+
+                        <!-- CONFLICT label -->
+                        <rect x="100" y="6" width="120" height="24" fill="rgba(255,68,68,0.15)" stroke="#ff4444" stroke-width="1.5" rx="5"/>
+                        <text x="118" y="23" fill="#ff4444" font-size="12" font-weight="bold">CONFLICT</text>
+
+                        <!-- Legend -->
+                        <rect x="530" y="250" width="160" height="50" fill="rgba(0,0,0,0.5)" rx="5"/>
+                        <polygon points="545,263 540,275 545,271 550,275" fill="#00cc44"/>
+                        <text x="560" y="273" fill="#ccc" font-size="10" data-svg-i18n="svg-first">Take-Off (existing)</text>
+                        <polygon points="545,283 540,295 545,291 550,295" fill="#ff4444"/>
+                        <text x="560" y="293" fill="#ccc" font-size="10" data-svg-i18n="svg-second">Take-Off (trigger)</text>
+                    </svg>
+                </div>
+                <p class="diagram-label" data-i18n="sit4-diagram">Situation 4: IBE987 and BAW456 given Take-Off from crossing runways with converging ground trajectories</p>
+            </div>
+        </div>
+
+        <!-- Situation 5 -->
+        <div class="situation">
+            <div class="situation-header">
+                <span class="situation-number">5</span>
+                <span class="situation-title" data-i18n="sit5-title">Take-Off from Runway with Converging Climb-Out Trajectory</span>
+            </div>
+            <div class="situation-body">
+                <p class="situation-description" data-i18n="sit5-desc">
+                    If <span class="callsign">BAW456</span> is given
+                    <span class="av-term" data-tooltip="Clearance for takeoff">Take-Off</span> and
+                    <span class="callsign">AFR123</span> is given
+                    <span class="av-term" data-tooltip="Clearance for takeoff">Take-Off</span>
+                    from a runway where the climb out trajectory converges with the runway being used by BAW456.
+                </p>
+                <span class="conflict-result">&#9888; CONFLICT</span>
+
+                <div class="diagram-container">
+                    <svg width="700" height="320" viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Grass background -->
+                        <rect x="0" y="0" width="700" height="320" fill="#2d4a2d" rx="8"/>
+
+                        <!-- Runway 1 (lower left, angled) -->
+                        <g transform="translate(200, 250) rotate(-25)">
+                            <rect x="-150" y="-25" width="300" height="50" fill="#555" rx="4"/>
+                            <rect x="-150" y="-2" width="300" height="6" fill="#fff" opacity="0.3"/>
+                        </g>
+
+                        <!-- Runway 2 (upper right, different angle) -->
+                        <g transform="translate(450, 150) rotate(-65)">
+                            <rect x="-150" y="-25" width="300" height="50" fill="#555" rx="4" opacity="0.85"/>
+                            <rect x="-150" y="-2" width="300" height="6" fill="#fff" opacity="0.3"/>
+                        </g>
+
+                        <!-- BAW456 (existing, green) on runway 1 -->
+                        <g transform="translate(130, 270)">
+                            <polygon points="12,0 -8,-5 -4,0 -8,5" fill="#00cc44" stroke="#00ff55" stroke-width="1" transform="rotate(-25)"/>
+                        </g>
+                        <rect x="95" y="243" width="58" height="18" fill="rgba(0,0,0,0.7)" rx="3"/>
+                        <text x="100" y="256" fill="#00ff55" font-size="11" font-weight="bold" font-family="monospace">BAW456</text>
+                        <text x="100" y="238" fill="#aaa" font-size="9" data-svg-i18n="svg-takeoff1">TAKE-OFF</text>
+
+                        <!-- BAW456 climb-out arrow -->
+                        <line x1="145" y1="265" x2="300" y2="195" stroke="#00cc44" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+                        <polygon points="305,193 293,192 296,200" fill="#00cc44" opacity="0.5"/>
+
+                        <!-- AFR123 (trigger, red) on runway 2 -->
+                        <g transform="translate(410, 210)">
+                            <polygon points="0,-12 -5,8 0,4 5,8" fill="#ff4444" stroke="#ff6666" stroke-width="1" transform="rotate(-65)"/>
+                        </g>
+                        <rect x="425" y="200" width="55" height="18" fill="rgba(0,0,0,0.7)" rx="3"/>
+                        <text x="430" y="213" fill="#ff6666" font-size="11" font-weight="bold" font-family="monospace">AFR123</text>
+                        <text x="430" y="193" fill="#aaa" font-size="9" data-svg-i18n="svg-takeoff2">TAKE-OFF</text>
+
+                        <!-- AFR123 climb-out arrow -->
+                        <line x1="405" y1="195" x2="370" y2="130" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+                        <polygon points="368,127 366,140 375,134" fill="#ff4444" opacity="0.5"/>
+
+                        <!-- Convergence point -->
+                        <circle cx="350" cy="155" r="16" fill="none" stroke="#ff4444" stroke-width="2.5" opacity="0.7"/>
+                        <text x="345" y="160" fill="#ff4444" font-size="14" font-weight="bold">!</text>
+
+                        <!-- Converging label -->
+                        <text x="280" y="115" fill="#ff8888" font-size="10" font-weight="bold" opacity="0.7" data-svg-i18n="svg-converging">CONVERGING TRAJECTORIES</text>
+
+                        <!-- CONFLICT label -->
+                        <rect x="100" y="6" width="120" height="24" fill="rgba(255,68,68,0.15)" stroke="#ff4444" stroke-width="1.5" rx="5"/>
+                        <text x="118" y="23" fill="#ff4444" font-size="12" font-weight="bold">CONFLICT</text>
+
+                        <!-- Legend -->
+                        <rect x="530" y="250" width="160" height="50" fill="rgba(0,0,0,0.5)" rx="5"/>
+                        <polygon points="545,263 540,275 545,271 550,275" fill="#00cc44"/>
+                        <text x="560" y="273" fill="#ccc" font-size="10" data-svg-i18n="svg-first">Take-Off (existing)</text>
+                        <polygon points="545,283 540,295 545,291 550,295" fill="#ff4444"/>
+                        <text x="560" y="293" fill="#ccc" font-size="10" data-svg-i18n="svg-second">Take-Off (trigger)</text>
+                    </svg>
+                </div>
+                <p class="diagram-label" data-i18n="sit5-diagram">Situation 5: BAW456 and AFR123 given Take-Off from runways with converging climb-out trajectories</p>
+            </div>
+        </div>
+
+        <!-- Converging SIDs sub-heading -->
+        <h3 data-i18n="sub-sids">Converging SIDs after Take-Off</h3>
+
+        <!-- Situation 6 -->
+        <div class="situation">
+            <div class="situation-header">
+                <span class="situation-number">6</span>
+                <span class="situation-title" data-i18n="sit6-title">Converging SID Routes from Different Runways</span>
+            </div>
+            <div class="situation-body">
+                <p class="situation-description" data-i18n="sit6-desc">
+                    An alert is triggered if <strong>Aircraft A</strong> has Taken-Off and a Take-Off Clearance for <strong>Aircraft B</strong> from another runway is input within a defined time from the departure of Aircraft A, and the SID routes of both aircraft are known to conflict (this can be defined locally using look up tables).
+                </p>
+                <span class="conflict-result">&#9888; CONFLICT</span>
+
+                <div class="diagram-container">
+                    <svg width="700" height="300" viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Sky background -->
+                        <rect x="0" y="0" width="700" height="300" fill="#1a2a3a" rx="8"/>
+
+                        <!-- Ground area -->
+                        <rect x="0" y="220" width="700" height="80" fill="#2d4a2d"/>
+
+                        <!-- Runway 1 (left) -->
+                        <rect x="80" y="240" width="200" height="30" fill="#555" rx="3" transform="rotate(-10, 180, 255)"/>
+
+                        <!-- Runway 2 (right) -->
+                        <rect x="400" y="240" width="200" height="30" fill="#555" rx="3" transform="rotate(10, 500, 255)"/>
+
+                        <!-- Aircraft A (existing, green) - already airborne -->
+                        <g transform="translate(200, 180)">
+                            <polygon points="0,-12 -6,8 0,4 6,8" fill="#00cc44" stroke="#00ff55" stroke-width="1"/>
+                        </g>
+                        <rect x="210" y="170" width="75" height="18" fill="rgba(0,0,0,0.7)" rx="3"/>
+                        <text x="215" y="183" fill="#00ff55" font-size="11" font-weight="bold" font-family="monospace">Aircraft A</text>
+                        <text x="215" y="163" fill="#aaa" font-size="9" data-svg-i18n="svg-airborne">AIRBORNE</text>
+
+                        <!-- Aircraft A SID route (climbing, curving right) -->
+                        <path d="M200,168 Q230,120 300,80 Q350,55 400,50" stroke="#00cc44" stroke-width="2" stroke-dasharray="6,3" fill="none" opacity="0.6"/>
+                        <polygon points="403,48 393,44 395,54" fill="#00cc44" opacity="0.6"/>
+
+                        <!-- Aircraft B (trigger, red) - on ground -->
+                        <g transform="translate(480, 240)">
+                            <polygon points="0,-12 -6,8 0,4 6,8" fill="#ff4444" stroke="#ff6666" stroke-width="1"/>
+                        </g>
+                        <rect x="490" y="230" width="75" height="18" fill="rgba(0,0,0,0.7)" rx="3"/>
+                        <text x="495" y="243" fill="#ff6666" font-size="11" font-weight="bold" font-family="monospace">Aircraft B</text>
+                        <text x="495" y="223" fill="#aaa" font-size="9" data-svg-i18n="svg-takeoff2">TAKE-OFF</text>
+
+                        <!-- Aircraft B SID route (climbing, curving left) -->
+                        <path d="M480,228 Q460,160 430,100 Q415,65 400,50" stroke="#ff4444" stroke-width="2" stroke-dasharray="6,3" fill="none" opacity="0.6"/>
+                        <polygon points="398,48 405,56 408,46" fill="#ff4444" opacity="0.6"/>
+
+                        <!-- Conflict point (SID convergence) -->
+                        <circle cx="400" cy="50" r="16" fill="none" stroke="#ff4444" stroke-width="2.5" opacity="0.8"/>
+                        <text x="395" y="55" fill="#ff4444" font-size="14" font-weight="bold">!</text>
+
+                        <!-- SID conflict label -->
+                        <rect x="415" y="35" width="160" height="22" fill="rgba(0,0,0,0.6)" rx="4"/>
+                        <text x="425" y="51" fill="#ff8888" font-size="10" font-weight="bold" data-svg-i18n="svg-sid-conflict">SID CONFLICT POINT</text>
+
+                        <!-- CONFLICT label -->
+                        <rect x="100" y="6" width="120" height="24" fill="rgba(255,68,68,0.15)" stroke="#ff4444" stroke-width="1.5" rx="5"/>
+                        <text x="118" y="23" fill="#ff4444" font-size="12" font-weight="bold">CONFLICT</text>
+
+                        <!-- Legend -->
+                        <rect x="530" y="120" width="160" height="50" fill="rgba(0,0,0,0.5)" rx="5"/>
+                        <polygon points="545,133 540,145 545,141 550,145" fill="#00cc44"/>
+                        <text x="560" y="143" fill="#ccc" font-size="10" data-svg-i18n="svg-first-sid">Aircraft A (airborne)</text>
+                        <polygon points="545,153 540,165 545,161 550,165" fill="#ff4444"/>
+                        <text x="560" y="163" fill="#ccc" font-size="10" data-svg-i18n="svg-second-sid">Aircraft B (trigger)</text>
+                    </svg>
+                </div>
+                <p class="diagram-label" data-i18n="sit6-diagram">Situation 6: Converging SID routes from different runways create a potential conflict point after departure</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exemptions -->
+    <section class="card">
+        <h2><span class="icon">&#9989;</span> <span data-i18n="section-exemptions">Exemptions to the Rule</span></h2>
+        <ul class="exemption-list">
+            <li>
+                <span class="exemption-number">1</span>
+                <div data-i18n="exemption1">
+                    Local procedures may permit <strong>BAW456</strong> to be given Take-Off before <strong>IBE987</strong> is airborne, in which case
+                    <span class="av-term" data-tooltip="Radar/tracking data">surveillance</span> is needed to determine the position of the aircraft.
+                    <span class="no-alert-badge">&#10003; NO ALERT</span>
+                </div>
+            </li>
+            <li>
+                <span class="exemption-number">2</span>
+                <div data-i18n="exemption2">
+                    Local procedures may permit <strong>AFR123</strong> to be given Take-Off before <strong>BAW456</strong> is airborne, in which case
+                    <span class="av-term" data-tooltip="Radar/tracking data">surveillance</span> is needed to determine the position of the aircraft.
+                    <span class="no-alert-badge">&#10003; NO ALERT</span>
+                </div>
+            </li>
+            <li>
+                <span class="exemption-number">3</span>
+                <div data-i18n="exemption3">
+                    <span class="av-term" data-tooltip="Radar/tracking data">Surveillance</span> data is used to determine whether one of the two aircraft has already passed a point on the runway that is considered as safe, after the crossing point of the runways, in which case
+                    <span class="no-alert-badge">&#10003; NO ALERT</span> is triggered.
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Summary Table -->
+    <section class="card">
+        <h2><span class="icon">&#128203;</span> <span data-i18n="section-ref">Quick Reference</span></h2>
+        <table style="width:100%; border-collapse:collapse; font-size:0.9rem;">
+            <thead>
+                <tr style="background:#eef2ff;">
+                    <th style="padding:0.7rem; text-align:left; border-bottom:2px solid var(--border);" data-i18n="th-situation">Situation</th>
+                    <th style="padding:0.7rem; text-align:left; border-bottom:2px solid var(--border);" data-i18n="th-description">Description</th>
+                    <th style="padding:0.7rem; text-align:center; border-bottom:2px solid var(--border);" data-i18n="th-alert">Alert</th>
+                    <th style="padding:0.7rem; text-align:left; border-bottom:2px solid var(--border);" data-i18n="th-exemption">Exemption</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);">1</td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);" data-i18n="td-desc1">Both lined up on same runway</td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border); text-align:center;">
+                        <span class="conflict-result">CONFLICT</span>
+                    </td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);" data-i18n="td-ex1">Local procedures (surveillance needed)</td>
+                </tr>
+                <tr>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);">2</td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);" data-i18n="td-desc2">Second at holding point, same direction</td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border); text-align:center;">
+                        <span class="conflict-result">CONFLICT</span>
+                    </td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);" data-i18n="td-ex2">Local procedures (surveillance needed)</td>
+                </tr>
+                <tr>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);">3</td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);" data-i18n="td-desc3">Second at holding point, opposite direction</td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border); text-align:center;">
+                        <span class="conflict-result">CONFLICT</span>
+                    </td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);" data-i18n="td-ex3">Local procedures (surveillance needed)</td>
+                </tr>
+                <tr>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);">4</td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);" data-i18n="td-desc4">Crossing runways, converging ground trajectories</td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border); text-align:center;">
+                        <span class="conflict-result">CONFLICT</span>
+                    </td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);" data-i18n="td-ex4">Aircraft passed safe point after crossing</td>
+                </tr>
+                <tr>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);">5</td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);" data-i18n="td-desc5">Converging climb-out trajectories</td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border); text-align:center;">
+                        <span class="conflict-result">CONFLICT</span>
+                    </td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);" data-i18n="td-ex5">Aircraft passed safe point after crossing</td>
+                </tr>
+                <tr>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);">6</td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);" data-i18n="td-desc6">Converging SIDs after Take-Off</td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border); text-align:center;">
+                        <span class="conflict-result">CONFLICT</span>
+                    </td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);" data-i18n="td-ex6">SID routes not known to conflict</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Footer nav (injected by shared.js) -->
+    <div id="footer-nav-root"></div>
+
+</div>
+
+<footer>
+    <p data-i18n="footer1">EUROCONTROL Specification for A-SMGCS Services &mdash; Edition 2.0 &mdash; Appendix B</p>
+    <p style="margin-top:0.3rem;" data-i18n="footer2">CATC (Conflicting ATC Clearances) Scenario Documentation</p>
+</footer>
+
+<script src="js/scenarios.js"></script>
+<script src="js/shared.js"></script>
+<script>
+var pageTranslations = {
+    en: {
+        'nav-badge': 'Scenario 11 / 22',
+        'nav-prev': '&larr; Prev',
+        'nav-next': 'Next &rarr;',
+        'hero-subtitle': 'An aircraft is given Take-Off while another aircraft is also given Take-Off on the same or crossing/converging runways',
+        'tag-clearances': 'Clearances',
+        'tag-runway': 'Assigned Runway/s',
+        'tag-hp': 'Holding Point',
+        'tag-surv': 'Surveillance',
+        'sub-single': 'Single Runway',
+        'sit1-title': 'Second Aircraft Lined Up on Same Runway',
+        'sit1-desc': 'If <span class="callsign">IBE987</span> is given <span class="av-term" data-tooltip="Clearance for takeoff">Take-Off</span> and <span class="callsign">BAW456</span> is given <span class="av-term" data-tooltip="Clearance for takeoff">Take-Off</span> whilst lined up on the same runway.',
+        'sit1-diagram': 'Situation 1: IBE987 given Take-Off while BAW456 is given Take-Off whilst lined up on the same runway',
+        'sit2-title': 'Second Aircraft at Holding Point, Same Direction',
+        'sit2-desc': 'If <span class="callsign">IBE987</span> is given <span class="av-term" data-tooltip="Clearance for takeoff">Take-Off</span> and <span class="callsign">AFR123</span> is given <span class="av-term" data-tooltip="Clearance for takeoff">Take-Off</span> whilst at a holding point on the same runway.',
+        'sit2-diagram': 'Situation 2: IBE987 given Take-Off while AFR123 is given Take-Off from a holding point on the same runway',
+        'sit3-title': 'Second Aircraft at Holding Point, Opposite Direction',
+        'sit3-desc': 'If <span class="callsign">IBE987</span> is given <span class="av-term" data-tooltip="Clearance for takeoff">Take-Off</span> and <span class="callsign">KLM789</span> is given <span class="av-term" data-tooltip="Clearance for takeoff">Take-Off</span> whilst at a holding point on the same runway in the opposite direction.',
+        'sit3-diagram': 'Situation 3: IBE987 given Take-Off while KLM789 is given Take-Off from a holding point in the opposite direction',
+        'sub-crossing': 'Crossing/Converging Runways',
+        'sit4-title': 'Take-Off from Intersecting Runway (Ground Trajectories Converging)',
+        'sit4-desc': 'If <span class="callsign">IBE987</span> is given <span class="av-term" data-tooltip="Clearance for takeoff">Take-Off</span> and <span class="callsign">BAW456</span> is given <span class="av-term" data-tooltip="Clearance for takeoff">Take-Off</span> from a runway that intersects/crosses the runway being used by IBE987. When the aircraft ground trajectories are converging an alert is triggered.',
+        'sit4-diagram': 'Situation 4: IBE987 and BAW456 given Take-Off from crossing runways with converging ground trajectories',
+        'sit5-title': 'Take-Off from Runway with Converging Climb-Out Trajectory',
+        'sit5-desc': 'If <span class="callsign">BAW456</span> is given <span class="av-term" data-tooltip="Clearance for takeoff">Take-Off</span> and <span class="callsign">AFR123</span> is given <span class="av-term" data-tooltip="Clearance for takeoff">Take-Off</span> from a runway where the climb out trajectory converges with the runway being used by BAW456.',
+        'sit5-diagram': 'Situation 5: BAW456 and AFR123 given Take-Off from runways with converging climb-out trajectories',
+        'sub-sids': 'Converging SIDs after Take-Off',
+        'sit6-title': 'Converging SID Routes from Different Runways',
+        'sit6-desc': 'An alert is triggered if <strong>Aircraft A</strong> has Taken-Off and a Take-Off Clearance for <strong>Aircraft B</strong> from another runway is input within a defined time from the departure of Aircraft A, and the SID routes of both aircraft are known to conflict (this can be defined locally using look up tables).',
+        'sit6-diagram': 'Situation 6: Converging SID routes from different runways create a potential conflict point after departure',
+        'exemption1': 'Local procedures may permit <strong>BAW456</strong> to be given Take-Off before <strong>IBE987</strong> is airborne, in which case <span class="av-term" data-tooltip="Radar/tracking data">surveillance</span> is needed to determine the position of the aircraft. <span class="no-alert-badge">&#10003; NO ALERT</span>',
+        'exemption2': 'Local procedures may permit <strong>AFR123</strong> to be given Take-Off before <strong>BAW456</strong> is airborne, in which case <span class="av-term" data-tooltip="Radar/tracking data">surveillance</span> is needed to determine the position of the aircraft. <span class="no-alert-badge">&#10003; NO ALERT</span>',
+        'exemption3': '<span class="av-term" data-tooltip="Radar/tracking data">Surveillance</span> data is used to determine whether one of the two aircraft has already passed a point on the runway that is considered as safe, after the crossing point of the runways, in which case <span class="no-alert-badge">&#10003; NO ALERT</span> is triggered.',
+        'td-desc1': 'Both lined up on same runway',
+        'td-desc2': 'Second at holding point, same direction',
+        'td-desc3': 'Second at holding point, opposite direction',
+        'td-desc4': 'Crossing runways, converging ground trajectories',
+        'td-desc5': 'Converging climb-out trajectories',
+        'td-desc6': 'Converging SIDs after Take-Off',
+        'td-ex1': 'Local procedures (surveillance needed)',
+        'td-ex2': 'Local procedures (surveillance needed)',
+        'td-ex3': 'Local procedures (surveillance needed)',
+        'td-ex4': 'Aircraft passed safe point after crossing',
+        'td-ex5': 'Aircraft passed safe point after crossing',
+        'td-ex6': 'SID routes not known to conflict',
+        'btn-prev': '&larr; Take-Off vs Cross/Enter',
+        'btn-next': 'Next: Take-Off vs Land &rarr;',
+        'svg-takeoff1': 'TAKE-OFF',
+        'svg-takeoff2': 'TAKE-OFF',
+        'svg-airborne': 'AIRBORNE',
+        'svg-hp-afr': 'HP (AFR123)',
+        'svg-hp-klm': 'HP (KLM789)',
+        'svg-opposite': 'OPPOSITE DIRECTION',
+        'svg-converging': 'CONVERGING TRAJECTORIES',
+        'svg-sid-conflict': 'SID CONFLICT POINT',
+        'svg-first': 'Take-Off (existing)',
+        'svg-second': 'Take-Off (trigger)',
+        'svg-first-sid': 'Aircraft A (airborne)',
+        'svg-second-sid': 'Aircraft B (trigger)'
+    },
+    tr: {
+        'nav-badge': 'Senaryo 11 / 22',
+        'nav-prev': '&larr; \u00d6nceki',
+        'nav-next': 'Sonraki &rarr;',
+        'hero-subtitle': 'Bir hava arac\u0131na kalk\u0131\u015f izni verilirken, ayn\u0131 veya kesi\u015fen/yak\u0131nsayan pistlerde ba\u015fka bir hava arac\u0131na da kalk\u0131\u015f izni veriliyor',
+        'tag-clearances': 'Clearances',
+        'tag-runway': 'Assigned Runway/s',
+        'tag-hp': 'Holding Point',
+        'tag-surv': 'Surveillance',
+        'sub-single': 'Tek Pist',
+        'sit1-title': '\u0130kinci U\u00e7ak Ayn\u0131 Pistte S\u0131ralanm\u0131\u015f',
+        'sit1-desc': '<span class="callsign">IBE987</span>\'ye <span class="av-term" data-tooltip="Kalk\u0131\u015f izni">Kalk\u0131\u015f</span> talimat\u0131 verildiyse ve <span class="callsign">BAW456</span>\'ya ayn\u0131 pistte s\u0131ralanm\u0131\u015fken <span class="av-term" data-tooltip="Kalk\u0131\u015f izni">Kalk\u0131\u015f</span> talimat\u0131 verildiyse.',
+        'sit1-diagram': 'Durum 1: IBE987\'ye kalk\u0131\u015f verilirken BAW456\'ya ayn\u0131 pistte s\u0131ralanm\u0131\u015fken kalk\u0131\u015f veriliyor',
+        'sit2-title': '\u0130kinci U\u00e7ak Bekleme Noktas\u0131nda, Ayn\u0131 Y\u00f6n',
+        'sit2-desc': '<span class="callsign">IBE987</span>\'ye <span class="av-term" data-tooltip="Kalk\u0131\u015f izni">Kalk\u0131\u015f</span> talimat\u0131 verildiyse ve <span class="callsign">AFR123</span>\'e ayn\u0131 pistte bekleme noktas\u0131ndayken <span class="av-term" data-tooltip="Kalk\u0131\u015f izni">Kalk\u0131\u015f</span> talimat\u0131 verildiyse.',
+        'sit2-diagram': 'Durum 2: IBE987\'ye kalk\u0131\u015f verilirken AFR123\'e ayn\u0131 pistte bekleme noktas\u0131ndan kalk\u0131\u015f veriliyor',
+        'sit3-title': '\u0130kinci U\u00e7ak Bekleme Noktas\u0131nda, Kar\u015f\u0131 Y\u00f6n',
+        'sit3-desc': '<span class="callsign">IBE987</span>\'ye <span class="av-term" data-tooltip="Kalk\u0131\u015f izni">Kalk\u0131\u015f</span> talimat\u0131 verildiyse ve <span class="callsign">KLM789</span>\'a ayn\u0131 pistte kar\u015f\u0131 y\u00f6ndeki bekleme noktas\u0131ndan <span class="av-term" data-tooltip="Kalk\u0131\u015f izni">Kalk\u0131\u015f</span> talimat\u0131 verildiyse.',
+        'sit3-diagram': 'Durum 3: IBE987\'ye kalk\u0131\u015f verilirken KLM789\'a kar\u015f\u0131 y\u00f6ndeki bekleme noktas\u0131ndan kalk\u0131\u015f veriliyor',
+        'sub-crossing': 'Kesi\u015fen/Yak\u0131nsayan Pistler',
+        'sit4-title': 'Kesi\u015fen Pistten Kalk\u0131\u015f (Yer Yol\u00f6r\u00fcngeleri Yak\u0131nsayan)',
+        'sit4-desc': '<span class="callsign">IBE987</span>\'ye <span class="av-term" data-tooltip="Kalk\u0131\u015f izni">Kalk\u0131\u015f</span> talimat\u0131 verildiyse ve <span class="callsign">BAW456</span>\'ya IBE987\'nin kulland\u0131\u011f\u0131 pisti kesen bir pistten <span class="av-term" data-tooltip="Kalk\u0131\u015f izni">Kalk\u0131\u015f</span> talimat\u0131 verildiyse. U\u00e7aklar\u0131n yer yol\u00f6r\u00fcngeleri yak\u0131nsa\u015f\u0131yorsa alarm tetiklenir.',
+        'sit4-diagram': 'Durum 4: IBE987 ve BAW456\'ya kesi\u015fen pistlerden yak\u0131nsayan yer yol\u00f6r\u00fcngeleriyle kalk\u0131\u015f veriliyor',
+        'sit5-title': 'Yak\u0131nsayan T\u0131rman\u0131\u015f Yol\u00f6r\u00fcngeli Pistten Kalk\u0131\u015f',
+        'sit5-desc': '<span class="callsign">BAW456</span>\'ya <span class="av-term" data-tooltip="Kalk\u0131\u015f izni">Kalk\u0131\u015f</span> talimat\u0131 verildiyse ve <span class="callsign">AFR123</span>\'e t\u0131rman\u0131\u015f yol\u00f6r\u00fcngesi BAW456\'n\u0131n kulland\u0131\u011f\u0131 pistle yak\u0131nsayan bir pistten <span class="av-term" data-tooltip="Kalk\u0131\u015f izni">Kalk\u0131\u015f</span> talimat\u0131 verildiyse.',
+        'sit5-diagram': 'Durum 5: BAW456 ve AFR123\'e yak\u0131nsayan t\u0131rman\u0131\u015f yol\u00f6r\u00fcngeleriyle kalk\u0131\u015f veriliyor',
+        'sub-sids': 'Kalk\u0131\u015f Sonras\u0131 Yak\u0131nsayan SID\'ler',
+        'sit6-title': 'Farkl\u0131 Pistlerden Yak\u0131nsayan SID Rotalar\u0131',
+        'sit6-desc': '<strong>U\u00e7ak A</strong> kalk\u0131\u015f yapm\u0131\u015fsa ve <strong>U\u00e7ak B</strong> i\u00e7in ba\u015fka bir pistten kalk\u0131\u015f talimat\u0131 U\u00e7ak A\'n\u0131n kalk\u0131\u015f\u0131ndan belirli bir s\u00fcre i\u00e7inde girilmi\u015fse ve her iki u\u00e7a\u011f\u0131n SID rotalar\u0131n\u0131n \u00e7eli\u015fti\u011fi biliniyorsa alarm tetiklenir (bu yerel arama tablolar\u0131yla tan\u0131mlanabilir).',
+        'sit6-diagram': 'Durum 6: Farkl\u0131 pistlerden yak\u0131nsayan SID rotalar\u0131 kalk\u0131\u015f sonras\u0131 potansiyel \u00e7eli\u015fme noktas\u0131 olu\u015fturuyor',
+        'exemption1': 'Yerel prosed\u00fcrler <strong>BAW456</strong>\'ya <strong>IBE987</strong> havadayken kalk\u0131\u015f verilmesine izin verebilir, bu durumda u\u00e7a\u011f\u0131n pozisyonunu belirlemek i\u00e7in <span class="av-term" data-tooltip="Radar/g\u00f6zetim verisi">g\u00f6zetim</span> gereklidir. <span class="no-alert-badge">&#10003; ALARM YOK</span>',
+        'exemption2': 'Yerel prosed\u00fcrler <strong>AFR123</strong>\'e <strong>BAW456</strong> havadayken kalk\u0131\u015f verilmesine izin verebilir, bu durumda u\u00e7a\u011f\u0131n pozisyonunu belirlemek i\u00e7in <span class="av-term" data-tooltip="Radar/g\u00f6zetim verisi">g\u00f6zetim</span> gereklidir. <span class="no-alert-badge">&#10003; ALARM YOK</span>',
+        'exemption3': '<span class="av-term" data-tooltip="Radar/g\u00f6zetim verisi">G\u00f6zetim</span> verisi, iki u\u00e7aktan birinin pist kesi\u015fim noktas\u0131ndan sonra g\u00fcvenli kabul edilen bir noktay\u0131 ge\u00e7ip ge\u00e7medi\u011fini belirlemek i\u00e7in kullan\u0131l\u0131r, bu durumda <span class="no-alert-badge">&#10003; ALARM YOK</span>.',
+        'td-desc1': '\u0130kisi de ayn\u0131 pistte s\u0131ralanm\u0131\u015f',
+        'td-desc2': '\u0130kincisi bekleme noktas\u0131nda, ayn\u0131 y\u00f6n',
+        'td-desc3': '\u0130kincisi bekleme noktas\u0131nda, kar\u015f\u0131 y\u00f6n',
+        'td-desc4': 'Kesi\u015fen pistler, yak\u0131nsayan yer yol\u00f6r\u00fcngeleri',
+        'td-desc5': 'Yak\u0131nsayan t\u0131rman\u0131\u015f yol\u00f6r\u00fcngeleri',
+        'td-desc6': 'Kalk\u0131\u015f sonras\u0131 yak\u0131nsayan SID\'ler',
+        'td-ex1': 'Yerel prosed\u00fcrler (g\u00f6zetim gerekli)',
+        'td-ex2': 'Yerel prosed\u00fcrler (g\u00f6zetim gerekli)',
+        'td-ex3': 'Yerel prosed\u00fcrler (g\u00f6zetim gerekli)',
+        'td-ex4': 'U\u00e7ak kesi\u015fimden sonra g\u00fcvenli noktay\u0131 ge\u00e7mi\u015f',
+        'td-ex5': 'U\u00e7ak kesi\u015fimden sonra g\u00fcvenli noktay\u0131 ge\u00e7mi\u015f',
+        'td-ex6': 'SID rotalar\u0131 \u00e7eli\u015fmiyor',
+        'btn-prev': '&larr; Take-Off vs Cross/Enter',
+        'btn-next': 'Sonraki: Take-Off vs Land &rarr;',
+        'svg-takeoff1': 'KALKI\u015e',
+        'svg-takeoff2': 'KALKI\u015e',
+        'svg-airborne': 'HAVADA',
+        'svg-hp-afr': 'HP (AFR123)',
+        'svg-hp-klm': 'HP (KLM789)',
+        'svg-opposite': 'KAR\u015eI Y\u00d6N',
+        'svg-converging': 'YAKINSA\u015eAN YOL\u00d6R\u00dcNGELER',
+        'svg-sid-conflict': 'SID \u00c7EL\u0130\u015eME NOKTASI',
+        'svg-first': 'Kalk\u0131\u015f (mevcut talimat)',
+        'svg-second': 'Kalk\u0131\u015f (tetikleyici)',
+        'svg-first-sid': 'U\u00e7ak A (havada)',
+        'svg-second-sid': 'U\u00e7ak B (tetikleyici)'
+    }
+};
+var pageTooltips = {
+    en: {
+        'Clearances': 'Instructions issued by ATC',
+        'Assigned Runway/s': 'Designated runway information',
+        'Holding Point': 'Waiting point before runway entry',
+        'Surveillance': 'Radar/tracking data'
+    },
+    tr: {
+        'Clearances': 'ATC tarafindan verilen talimatlar',
+        'Assigned Runway/s': 'Atanmis pist bilgisi',
+        'Holding Point': 'Piste girmeden onceki bekleme noktasi',
+        'Surveillance': 'Radar/gozetim verisi'
+    }
+};
+initScenario();
+</script>
+
+</body>
+</html>

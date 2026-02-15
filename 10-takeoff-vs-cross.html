@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CATC Scenario 10 - Take-Off vs Cross or Enter</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body data-scenario="10">
+
+<!-- Sidebar (injected by shared.js) -->
+<div id="sidebar-root"></div>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div style="display:flex; align-items:center; gap:0.8rem;">
+        <button class="sidebar-toggle" onclick="toggleSidebar()">&#9776; <span class="sidebar-toggle-label" data-i18n="nav-scenarios">Scenarios</span></button>
+        <a href="index.html" data-i18n="nav-home" style="color:white; text-decoration:none; font-size:0.9rem; opacity:0.85;">CATC Scenarios</a>
+    </div>
+    <div class="nav-links">
+        <div class="lang-toggle">
+            <button class="lang-btn active" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" onclick="setLang('tr')">TR</button>
+        </div>
+        <span class="scenario-badge" id="scenario-badge">Scenario 10 / 22</span>
+        <a id="nav-prev" href="09-takeoff-vs-lineup.html">&larr; Prev</a>
+        <a id="nav-next" href="11-takeoff-vs-takeoff.html">Next &rarr;</a>
+    </div>
+</nav>
+
+<!-- Pagination Bar (injected by shared.js) -->
+<div id="pagination-root"></div>
+
+<!-- Hero -->
+<header class="hero">
+    <h1>Take-Off vs Cross or Enter</h1>
+    <p class="subtitle" data-i18n="hero-subtitle">An aircraft is given Take-Off while another aircraft is given Cross or Enter on the same runway</p>
+    <div class="clearance-tags">
+        <span class="clearance-tag">TAKE-OFF <span class="vs">vs</span> CROSS / ENTER</span>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- Data Required -->
+    <section class="card">
+        <h2><span class="icon">&#128202;</span> <span data-i18n="section-data">Data Required</span></h2>
+        <div class="data-tags">
+            <span class="data-tag av-term" data-tooltip="Instructions issued by ATC" data-i18n="tag-clearances">Clearances</span>
+            <span class="data-tag av-term" data-tooltip="Designated runway information" data-i18n="tag-runway">Assigned Runway</span>
+            <span class="data-tag av-term" data-tooltip="Waiting point before runway entry" data-i18n="tag-hp">Holding Point</span>
+            <span class="data-tag av-term" data-tooltip="Radar/tracking data" data-i18n="tag-surv">Surveillance</span>
+            <span class="data-tag av-term" data-tooltip="Planned taxi/crossing route" data-i18n="tag-route">Route</span>
+        </div>
+    </section>
+
+    <!-- General Rule -->
+    <section class="card">
+        <h2><span class="icon">&#9888;&#65039;</span> <span data-i18n="section-rule">General Rule</span></h2>
+        <div class="rule-box" data-i18n="rule-text">
+            <strong>Important:</strong> In each scenario, it is deemed that the <strong>first Clearance</strong> in the heading title is the one that has been input by the Controller first and the <strong>second Clearance triggers</strong> the alert.
+        </div>
+    </section>
+
+    <!-- Alert Triggered -->
+    <section class="card">
+        <h2><span class="icon">&#128680;</span> <span data-i18n="section-alert">Alert Triggered</span></h2>
+
+        <!-- Situation 1 -->
+        <div class="situation">
+            <div class="situation-header">
+                <span class="situation-number">1</span>
+                <span class="situation-title" data-i18n="sit1-title">Cross or Enter from Holding Point on Same Runway</span>
+            </div>
+            <div class="situation-body">
+                <p class="situation-description" data-i18n="sit1-desc">
+                    If <span class="callsign">DLH321</span> is given
+                    <span class="av-term" data-tooltip="Clearance for takeoff">Take-Off</span> and
+                    <span class="callsign">CHECKER1</span> is given
+                    <span class="av-term" data-tooltip="Cross or enter the runway">Cross or Enter</span>
+                    from a Holding Point on the same runway.
+                </p>
+                <span class="conflict-result">&#9888; CONFLICT</span>
+
+                <div class="diagram-container">
+                    <svg width="700" height="280" viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Grass background -->
+                        <rect x="0" y="0" width="700" height="280" fill="#2d4a2d" rx="8"/>
+
+                        <!-- Runway -->
+                        <rect x="50" y="110" width="600" height="60" fill="#555" rx="4"/>
+                        <rect x="50" y="137" width="600" height="6" fill="#fff" opacity="0.3"/>
+                        <!-- Runway dashes -->
+                        <line x1="90" y1="140" x2="120" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="150" y1="140" x2="180" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="210" y1="140" x2="240" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="270" y1="140" x2="300" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="330" y1="140" x2="360" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="390" y1="140" x2="420" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="450" y1="140" x2="480" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="510" y1="140" x2="540" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="570" y1="140" x2="600" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+
+                        <!-- Runway labels -->
+                        <text x="58" y="147" fill="white" font-size="14" font-weight="bold">05</text>
+                        <text x="626" y="147" fill="white" font-size="14" font-weight="bold">23</text>
+
+                        <!-- DLH321 (Take-Off - existing clearance, green) on runway, heading right -->
+                        <g transform="translate(350, 140)">
+                            <polygon points="12,0 -8,-5 -4,0 -8,5" fill="#00cc44" stroke="#00ff55" stroke-width="1"/>
+                        </g>
+                        <rect x="315" y="113" width="60" height="18" fill="rgba(0,0,0,0.7)" rx="3"/>
+                        <text x="320" y="126" fill="#00ff55" font-size="11" font-weight="bold" font-family="monospace">DLH321</text>
+                        <text x="320" y="108" fill="#aaa" font-size="9" data-svg-i18n="svg-takeoff-label">TAKE-OFF</text>
+
+                        <!-- DLH321 takeoff arrow (heading right toward 23) -->
+                        <line x1="365" y1="140" x2="500" y2="140" stroke="#00cc44" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+                        <polygon points="505,140 495,135 495,145" fill="#00cc44" opacity="0.5"/>
+
+                        <!-- Holding Point South - CHECKER1 -->
+                        <rect x="220" y="170" width="30" height="55" fill="#6b8a4a" rx="2"/>
+                        <line x1="215" y1="170" x2="255" y2="170" stroke="#ffcc00" stroke-width="3"/>
+                        <text x="182" y="240" fill="#ffcc00" font-size="10" font-weight="bold" data-svg-i18n="svg-hp-checker">HP (CHECKER1)</text>
+
+                        <!-- CHECKER1 (Cross/Enter - trigger, red) at south holding point -->
+                        <g transform="translate(235, 200)">
+                            <polygon points="0,-12 -5,8 0,4 5,8" fill="#ff4444" stroke="#ff6666" stroke-width="1"/>
+                        </g>
+                        <rect x="255" y="190" width="68" height="18" fill="rgba(0,0,0,0.7)" rx="3"/>
+                        <text x="260" y="203" fill="#ff6666" font-size="11" font-weight="bold" font-family="monospace">CHECKER1</text>
+                        <text x="260" y="183" fill="#aaa" font-size="9" data-svg-i18n="svg-cross-label">CROSS/ENTER</text>
+
+                        <!-- CHECKER1 crossing arrow (south to north through runway) -->
+                        <line x1="235" y1="187" x2="235" y2="172" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.6"/>
+                        <polygon points="235,170 230,178 240,178" fill="#ff4444" opacity="0.6"/>
+
+                        <!-- Crossing path through runway (north exit) -->
+                        <rect x="220" y="55" width="30" height="55" fill="#6b8a4a" rx="2"/>
+                        <line x1="215" y1="110" x2="255" y2="110" stroke="#ffcc00" stroke-width="3"/>
+
+                        <!-- Dashed crossing path through runway -->
+                        <line x1="235" y1="170" x2="235" y2="110" stroke="#ff4444" stroke-width="1" stroke-dasharray="4,4" opacity="0.3"/>
+
+                        <!-- Conflict zone -->
+                        <circle cx="235" cy="140" r="14" fill="none" stroke="#ff4444" stroke-width="2.5" opacity="0.7"/>
+                        <text x="230" y="145" fill="#ff4444" font-size="14" font-weight="bold">!</text>
+
+                        <!-- CONFLICT label -->
+                        <rect x="100" y="6" width="120" height="24" fill="rgba(255,68,68,0.15)" stroke="#ff4444" stroke-width="1.5" rx="5"/>
+                        <text x="118" y="23" fill="#ff4444" font-size="12" font-weight="bold">CONFLICT</text>
+
+                        <!-- Legend -->
+                        <rect x="520" y="10" width="170" height="50" fill="rgba(0,0,0,0.5)" rx="5"/>
+                        <polygon points="535,23 530,35 535,31 540,35" fill="#00cc44"/>
+                        <text x="550" y="33" fill="#ccc" font-size="10" data-svg-i18n="svg-first">Take-Off (existing)</text>
+                        <polygon points="535,43 530,55 535,51 540,55" fill="#ff4444"/>
+                        <text x="550" y="53" fill="#ccc" font-size="10" data-svg-i18n="svg-second">Cross/Enter (trigger)</text>
+                    </svg>
+                </div>
+                <p class="diagram-label" data-i18n="sit1-diagram">Situation 1: DLH321 given Take-Off while CHECKER1 is given Cross or Enter from a Holding Point on the same runway</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exemptions -->
+    <section class="card">
+        <h2><span class="icon">&#9989;</span> <span data-i18n="section-exemptions">Exemptions to the Rule</span></h2>
+        <ul class="exemption-list">
+            <li>
+                <span class="exemption-number">1</span>
+                <div data-i18n="exemption1">
+                    <span class="av-term" data-tooltip="Waiting point before runway entry">Holding Point</span> and
+                    <span class="av-term" data-tooltip="Planned taxi/crossing route">Route</span> are needed to determine if
+                    <strong>DLH321</strong> is given Take-Off and
+                    <strong>CHECKER1</strong> is given Cross or Enter from a Holding Point on the same runway but behind
+                    <strong>DLH321</strong>, in this case <span class="no-alert-badge">&#10003; NO ALERT</span> would be triggered but <strong>jet blast</strong> needs to be taken into account.
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Summary Table -->
+    <section class="card">
+        <h2><span class="icon">&#128203;</span> <span data-i18n="section-ref">Quick Reference</span></h2>
+        <table style="width:100%; border-collapse:collapse; font-size:0.9rem;">
+            <thead>
+                <tr style="background:#eef2ff;">
+                    <th style="padding:0.7rem; text-align:left; border-bottom:2px solid var(--border);" data-i18n="th-situation">Situation</th>
+                    <th style="padding:0.7rem; text-align:left; border-bottom:2px solid var(--border);" data-i18n="th-description">Description</th>
+                    <th style="padding:0.7rem; text-align:center; border-bottom:2px solid var(--border);" data-i18n="th-alert">Alert</th>
+                    <th style="padding:0.7rem; text-align:left; border-bottom:2px solid var(--border);" data-i18n="th-exemption">Exemption</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);">1</td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);" data-i18n="td-desc1">Cross or Enter from Holding Point on same runway</td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border); text-align:center;">
+                        <span class="conflict-result">CONFLICT</span>
+                    </td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);" data-i18n="td-ex1">Cross/Enter position is behind Take-Off position (jet blast consideration)</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Footer Navigation (injected by shared.js) -->
+    <div id="footer-nav-root"></div>
+
+</div>
+
+<footer>
+    <p data-i18n="footer1">EUROCONTROL Specification for A-SMGCS Services &mdash; Edition 2.0 &mdash; Appendix B</p>
+    <p style="margin-top:0.3rem;" data-i18n="footer2">CATC (Conflicting ATC Clearances) Scenario Documentation</p>
+</footer>
+
+<script src="js/scenarios.js"></script>
+<script src="js/shared.js"></script>
+<script>
+var pageTranslations = {
+    en: {
+        'nav-badge': 'Scenario 10 / 22',
+        'nav-prev': '&larr; Prev',
+        'nav-next': 'Next &rarr;',
+        'hero-subtitle': 'An aircraft is given Take-Off while another aircraft is given Cross or Enter on the same runway',
+        'tag-clearances': 'Clearances',
+        'tag-runway': 'Assigned Runway',
+        'tag-hp': 'Holding Point',
+        'tag-surv': 'Surveillance',
+        'tag-route': 'Route',
+        'sit1-title': 'Cross or Enter from Holding Point on Same Runway',
+        'sit1-desc': 'If <span class="callsign">DLH321</span> is given <span class="av-term" data-tooltip="Clearance for takeoff">Take-Off</span> and <span class="callsign">CHECKER1</span> is given <span class="av-term" data-tooltip="Cross or enter the runway">Cross or Enter</span> from a Holding Point on the same runway.',
+        'sit1-diagram': 'Situation 1: DLH321 given Take-Off while CHECKER1 is given Cross or Enter from a Holding Point on the same runway',
+        'exemption1': '<span class="av-term" data-tooltip="Waiting point before runway entry">Holding Point</span> and <span class="av-term" data-tooltip="Planned taxi/crossing route">Route</span> are needed to determine if <strong>DLH321</strong> is given Take-Off and <strong>CHECKER1</strong> is given Cross or Enter from a Holding Point on the same runway but behind <strong>DLH321</strong>, in this case <span class="no-alert-badge">&#10003; NO ALERT</span> would be triggered but <strong>jet blast</strong> needs to be taken into account.',
+        'th-description': 'Description',
+        'td-desc1': 'Cross or Enter from Holding Point on same runway',
+        'td-ex1': 'Cross/Enter position is behind Take-Off position (jet blast consideration)',
+        'btn-prev': '&larr; Take-Off vs Line-Up',
+        'btn-next': 'Next: Take-Off vs Take-Off &rarr;',
+        'svg-takeoff-label': 'TAKE-OFF',
+        'svg-cross-label': 'CROSS/ENTER',
+        'svg-hp-checker': 'HP (CHECKER1)',
+        'svg-first': 'Take-Off (existing)',
+        'svg-second': 'Cross/Enter (trigger)'
+    },
+    tr: {
+        'nav-badge': 'Senaryo 10 / 22',
+        'nav-prev': '&larr; \u00d6nceki',
+        'nav-next': 'Sonraki &rarr;',
+        'hero-subtitle': 'Bir hava arac\u0131na kalk\u0131\u015f izni verilirken, ayn\u0131 pistte ba\u015fka bir hava arac\u0131na Cross or Enter talimat\u0131 veriliyor',
+        'tag-clearances': 'Clearances',
+        'tag-runway': 'Assigned Runway',
+        'tag-hp': 'Holding Point',
+        'tag-surv': 'Surveillance',
+        'tag-route': 'Route',
+        'sit1-title': 'Ayn\u0131 Pistte Bekleme Noktas\u0131ndan Cross or Enter',
+        'sit1-desc': '<span class="callsign">DLH321</span>\'e <span class="av-term" data-tooltip="Kalk\u0131\u015f izni">Kalk\u0131\u015f</span> talimat\u0131 verildiyse ve <span class="callsign">CHECKER1</span>\'e ayn\u0131 pistte bir Bekleme Noktas\u0131ndan <span class="av-term" data-tooltip="Pisti ge\u00e7 veya piste gir">Cross or Enter</span> talimat\u0131 verildiyse.',
+        'sit1-diagram': 'Durum 1: DLH321\'e kalk\u0131\u015f verilirken CHECKER1\'e ayn\u0131 pistte Bekleme Noktas\u0131ndan Cross or Enter veriliyor',
+        'exemption1': '<span class="av-term" data-tooltip="Piste girmeden \u00f6nceki bekleme noktas\u0131">Bekleme Noktas\u0131</span> ve <span class="av-term" data-tooltip="Planlanm\u0131\u015f taksi/ge\u00e7i\u015f rotas\u0131">Rota</span>, <strong>DLH321</strong>\'e kalk\u0131\u015f verilip <strong>CHECKER1</strong>\'e ayn\u0131 pistte ancak <strong>DLH321</strong>\'in arkas\u0131ndaki bir Bekleme Noktas\u0131ndan Cross or Enter verilip verilmedi\u011fini belirlemek i\u00e7in gereklidir. Bu durumda <span class="no-alert-badge">&#10003; ALARM YOK</span> ancak <strong>jet blast</strong> dikkate al\u0131nmal\u0131d\u0131r.',
+        'th-description': 'A\u00e7\u0131klama',
+        'td-desc1': 'Ayn\u0131 pistte Bekleme Noktas\u0131ndan Cross or Enter',
+        'td-ex1': 'Cross/Enter pozisyonu kalk\u0131\u015f pozisyonunun arkas\u0131nda (jet blast dikkate al\u0131nmal\u0131)',
+        'btn-prev': '&larr; Take-Off vs Line-Up',
+        'btn-next': 'Sonraki: Take-Off vs Take-Off &rarr;',
+        'svg-takeoff-label': 'KALKI\u015e',
+        'svg-cross-label': 'CROSS/ENTER',
+        'svg-hp-checker': 'HP (CHECKER1)',
+        'svg-first': 'Kalk\u0131\u015f (mevcut talimat)',
+        'svg-second': 'Cross/Enter (tetikleyici)'
+    }
+};
+
+var pageTooltips = {
+    en: {
+        'Clearances': 'Instructions issued by ATC',
+        'Assigned Runway': 'Designated runway information',
+        'Holding Point': 'Waiting point before runway entry',
+        'Surveillance': 'Radar/tracking data',
+        'Route': 'Planned taxi/crossing route'
+    },
+    tr: {
+        'Clearances': 'ATC tarafindan verilen talimatlar',
+        'Assigned Runway': 'Atanmis pist bilgisi',
+        'Holding Point': 'Piste girmeden onceki bekleme noktasi',
+        'Surveillance': 'Radar/gozetim verisi',
+        'Route': 'Planlanmis taksi/gecis rotasi'
+    }
+};
+
+initScenario();
+</script>
+
+</body>
+</html>
