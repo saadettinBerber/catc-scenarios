@@ -8,11 +8,11 @@ Interactive HTML documentation for **Conflicting ATC Clearances (CATC)** alerts 
 |-------|-----------|--------|
 | Line-Up vs ... | 01-04 | 4/4 |
 | Cross or Enter vs ... | 05-08 | 4/4 |
-| Take-Off vs ... | 09-12 | 3/4 |
-| Land vs ... | 13-16 | 0/4 |
+| Take-Off vs ... | 09-12 | 4/4 |
+| Land vs ... | 13-16 | 4/4 |
 | Ground Movement | 17-22 | 0/6 |
 
-**Total: 11 / 22 scenarios completed**
+**Total: 16 / 22 scenarios completed**
 
 ## Features
 

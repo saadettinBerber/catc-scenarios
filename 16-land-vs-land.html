@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CATC Scenario 16 - Land vs Land</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body data-scenario="16">
+
+<!-- Sidebar (injected by shared.js) -->
+<div id="sidebar-root"></div>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div style="display:flex; align-items:center; gap:0.8rem;">
+        <button class="sidebar-toggle" onclick="toggleSidebar()">&#9776; <span class="sidebar-toggle-label" data-i18n="nav-scenarios">Scenarios</span></button>
+        <a href="index.html" data-i18n="nav-home" style="color:white; text-decoration:none; font-size:0.9rem; opacity:0.85;">CATC Scenarios</a>
+    </div>
+    <div class="nav-links">
+        <div class="lang-toggle">
+            <button class="lang-btn active" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" onclick="setLang('tr')">TR</button>
+        </div>
+        <span class="scenario-badge" id="scenario-badge">Scenario 16 / 22</span>
+        <a id="nav-prev" class="disabled">&larr; Prev</a>
+        <a id="nav-next" class="disabled">Next &rarr;</a>
+    </div>
+</nav>
+
+<!-- Pagination (injected by shared.js) -->
+<div id="pagination-root"></div>
+
+<!-- Hero -->
+<header class="hero">
+    <h1>Land vs Land</h1>
+    <p class="subtitle" data-i18n="hero-subtitle">An aircraft is cleared to Land while another aircraft is also cleared to Land on the same or crossing/converging runways</p>
+    <div class="clearance-tags">
+        <span class="clearance-tag">LAND <span class="vs">vs</span> LAND</span>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- Data Required -->
+    <section class="card">
+        <h2><span class="icon">&#128202;</span> <span data-i18n="section-data">Data Required</span></h2>
+        <div class="data-tags">
+            <span class="data-tag av-term" data-tooltip="Instructions issued by ATC" data-i18n="tag-clearances">Clearances</span>
+            <span class="data-tag av-term" data-tooltip="Designated runway for operations" data-i18n="tag-runway">Assigned Runway/s</span>
+            <span class="data-tag av-term" data-tooltip="Waiting point before runway entry" data-i18n="tag-hp">Holding Point</span>
+            <span class="data-tag av-term" data-tooltip="Radar/tracking data" data-i18n="tag-surv">Surveillance</span>
+        </div>
+    </section>
+
+    <!-- General Rule -->
+    <section class="card">
+        <h2><span class="icon">&#9888;&#65039;</span> <span data-i18n="section-rule">General Rule</span></h2>
+        <div class="rule-box" data-i18n="rule-text">
+            <strong>Important:</strong> In each scenario, it is deemed that the <strong>first Clearance</strong> in the heading title is the one that has been input by the Controller first and the <strong>second Clearance triggers</strong> the alert.
+        </div>
+    </section>
+
+    <!-- Alert Triggered -->
+    <section class="card">
+        <h2><span class="icon">&#128680;</span> <span data-i18n="section-alert">Alert Triggered</span></h2>
+
+        <!-- Single Runway sub-heading -->
+        <h3 data-i18n="sub-single">Single Runway</h3>
+
+        <!-- Situation 1 -->
+        <div class="situation">
+            <div class="situation-header">
+                <span class="situation-number">1</span>
+                <span class="situation-title" data-i18n="sit1-title">Two Aircraft Cleared to Land on the Same Runway</span>
+            </div>
+            <div class="situation-body">
+                <p class="situation-description" data-i18n="sit1-desc">
+                    If <span class="callsign">AZA456</span> is given
+                    <span class="av-term" data-tooltip="Clearance for landing">Cleared to Land</span> and
+                    <span class="callsign">IBE789</span> is given
+                    <span class="av-term" data-tooltip="Clearance for landing">Cleared to Land</span>
+                    on the same runway.
+                </p>
+                <span class="conflict-result">&#9888; CONFLICT</span>
+
+                <div class="diagram-container">
+                    <svg width="700" height="260" viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Grass background -->
+                        <rect x="0" y="0" width="700" height="260" fill="#2d4a2d" rx="8"/>
+
+                        <!-- Runway -->
+                        <rect x="50" y="100" width="600" height="60" fill="#555" rx="4"/>
+                        <rect x="50" y="127" width="600" height="6" fill="#fff" opacity="0.3"/>
+                        <!-- Runway dashes -->
+                        <line x1="90" y1="130" x2="120" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="150" y1="130" x2="180" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="210" y1="130" x2="240" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="270" y1="130" x2="300" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="330" y1="130" x2="360" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="390" y1="130" x2="420" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="450" y1="130" x2="480" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="510" y1="130" x2="540" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="570" y1="130" x2="600" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+
+                        <!-- Runway labels -->
+                        <text x="58" y="137" fill="white" font-size="14" font-weight="bold">05</text>
+                        <text x="626" y="137" fill="white" font-size="14" font-weight="bold">23</text>
+
+                        <!-- AZA456 (Land - existing, green) approaching from left -->
+                        <g transform="translate(120, 130)">
+                            <polygon points="12,0 -8,-5 -4,0 -8,5" fill="#00cc44" stroke="#00ff55" stroke-width="1"/>
+                        </g>
+                        <rect x="85" y="103" width="58" height="18" fill="rgba(0,0,0,0.7)" rx="3"/>
+                        <text x="90" y="116" fill="#00ff55" font-size="11" font-weight="bold" font-family="monospace">AZA456</text>
+                        <text x="90" y="98" fill="#aaa" font-size="9" data-svg-i18n="svg-land-existing">LAND</text>
+
+                        <!-- AZA456 approach arrow -->
+                        <line x1="135" y1="130" x2="260" y2="130" stroke="#00cc44" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+                        <polygon points="265,130 255,125 255,135" fill="#00cc44" opacity="0.5"/>
+
+                        <!-- IBE789 (Land - trigger, red) approaching from right -->
+                        <g transform="translate(580, 130)">
+                            <polygon points="-12,0 8,-5 4,0 8,5" fill="#ff4444" stroke="#ff6666" stroke-width="1"/>
+                        </g>
+                        <rect x="550" y="103" width="55" height="18" fill="rgba(0,0,0,0.7)" rx="3"/>
+                        <text x="555" y="116" fill="#ff6666" font-size="11" font-weight="bold" font-family="monospace">IBE789</text>
+                        <text x="555" y="98" fill="#aaa" font-size="9" data-svg-i18n="svg-land-trigger">LAND</text>
+
+                        <!-- IBE789 approach arrow -->
+                        <line x1="565" y1="130" x2="440" y2="130" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+                        <polygon points="435,130 445,125 445,135" fill="#ff4444" opacity="0.5"/>
+
+                        <!-- Conflict zone -->
+                        <circle cx="350" cy="130" r="14" fill="none" stroke="#ff4444" stroke-width="2.5" opacity="0.7"/>
+                        <text x="345" y="135" fill="#ff4444" font-size="14" font-weight="bold">!</text>
+
+                        <!-- CONFLICT label -->
+                        <rect x="100" y="6" width="120" height="24" fill="rgba(255,68,68,0.15)" stroke="#ff4444" stroke-width="1.5" rx="5"/>
+                        <text x="118" y="23" fill="#ff4444" font-size="12" font-weight="bold">CONFLICT</text>
+
+                        <!-- Legend -->
+                        <rect x="530" y="10" width="160" height="50" fill="rgba(0,0,0,0.5)" rx="5"/>
+                        <polygon points="545,23 540,35 545,31 550,35" fill="#00cc44"/>
+                        <text x="560" y="33" fill="#ccc" font-size="10" data-svg-i18n="svg-first">Land (existing)</text>
+                        <polygon points="545,43 540,55 545,51 550,55" fill="#ff4444"/>
+                        <text x="560" y="53" fill="#ccc" font-size="10" data-svg-i18n="svg-second">Land (trigger)</text>
+                    </svg>
+                </div>
+                <p class="diagram-label" data-i18n="sit1-diagram">Situation 1: AZA456 cleared to Land while IBE789 is also cleared to Land on the same runway</p>
+            </div>
+        </div>
+
+        <!-- Situation 2 -->
+        <div class="situation">
+            <div class="situation-header">
+                <span class="situation-number">2</span>
+                <span class="situation-title" data-i18n="sit2-title">Two Aircraft Cleared to Land in Opposite Directions</span>
+            </div>
+            <div class="situation-body">
+                <p class="situation-description" data-i18n="sit2-desc">
+                    If <span class="callsign">KLM987</span> is given
+                    <span class="av-term" data-tooltip="Clearance for landing">Cleared to Land</span> and
+                    <span class="callsign">DLH123</span> is given
+                    <span class="av-term" data-tooltip="Clearance for landing">Cleared to Land</span>
+                    on the same runway in the opposite direction.
+                </p>
+                <span class="conflict-result">&#9888; CONFLICT</span>
+
+                <div class="diagram-container">
+                    <svg width="700" height="260" viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Grass background -->
+                        <rect x="0" y="0" width="700" height="260" fill="#2d4a2d" rx="8"/>
+
+                        <!-- Runway -->
+                        <rect x="50" y="100" width="600" height="60" fill="#555" rx="4"/>
+                        <rect x="50" y="127" width="600" height="6" fill="#fff" opacity="0.3"/>
+                        <!-- Runway dashes -->
+                        <line x1="90" y1="130" x2="120" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="150" y1="130" x2="180" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="210" y1="130" x2="240" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="270" y1="130" x2="300" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="330" y1="130" x2="360" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="390" y1="130" x2="420" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="450" y1="130" x2="480" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="510" y1="130" x2="540" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="570" y1="130" x2="600" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+
+                        <!-- Runway labels -->
+                        <text x="58" y="137" fill="white" font-size="14" font-weight="bold">05</text>
+                        <text x="626" y="137" fill="white" font-size="14" font-weight="bold">23</text>
+
+                        <!-- KLM987 (Land - existing, green) approaching from left -->
+                        <g transform="translate(140, 130)">
+                            <polygon points="12,0 -8,-5 -4,0 -8,5" fill="#00cc44" stroke="#00ff55" stroke-width="1"/>
+                        </g>
+                        <rect x="105" y="103" width="58" height="18" fill="rgba(0,0,0,0.7)" rx="3"/>
+                        <text x="110" y="116" fill="#00ff55" font-size="11" font-weight="bold" font-family="monospace">KLM987</text>
+                        <text x="110" y="98" fill="#aaa" font-size="9" data-svg-i18n="svg-land-existing">LAND</text>
+
+                        <!-- KLM987 approach arrow -->
+                        <line x1="155" y1="130" x2="280" y2="130" stroke="#00cc44" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+                        <polygon points="285,130 275,125 275,135" fill="#00cc44" opacity="0.5"/>
+
+                        <!-- DLH123 (Land - trigger, red) approaching from right, opposite direction -->
+                        <g transform="translate(560, 130)">
+                            <polygon points="-12,0 8,-5 4,0 8,5" fill="#ff4444" stroke="#ff6666" stroke-width="1"/>
+                        </g>
+                        <rect x="530" y="103" width="55" height="18" fill="rgba(0,0,0,0.7)" rx="3"/>
+                        <text x="535" y="116" fill="#ff6666" font-size="11" font-weight="bold" font-family="monospace">DLH123</text>
+                        <text x="535" y="98" fill="#aaa" font-size="9" data-svg-i18n="svg-land-trigger">LAND</text>
+
+                        <!-- DLH123 approach arrow (heading left) -->
+                        <line x1="545" y1="130" x2="420" y2="130" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+                        <polygon points="415,130 425,125 425,135" fill="#ff4444" opacity="0.5"/>
+
+                        <!-- Opposite direction indicator -->
+                        <text x="290" y="95" fill="#ff8888" font-size="10" font-weight="bold" opacity="0.7" data-svg-i18n="svg-opposite">OPPOSITE DIRECTION</text>
+
+                        <!-- Conflict zone -->
+                        <circle cx="350" cy="130" r="14" fill="none" stroke="#ff4444" stroke-width="2.5" opacity="0.7"/>
+                        <text x="345" y="135" fill="#ff4444" font-size="14" font-weight="bold">!</text>
+
+                        <!-- CONFLICT label -->
+                        <rect x="100" y="6" width="120" height="24" fill="rgba(255,68,68,0.15)" stroke="#ff4444" stroke-width="1.5" rx="5"/>
+                        <text x="118" y="23" fill="#ff4444" font-size="12" font-weight="bold">CONFLICT</text>
+
+                        <!-- Legend -->
+                        <rect x="530" y="195" width="160" height="50" fill="rgba(0,0,0,0.5)" rx="5"/>
+                        <polygon points="545,208 540,220 545,216 550,220" fill="#00cc44"/>
+                        <text x="560" y="218" fill="#ccc" font-size="10" data-svg-i18n="svg-first">Land (existing)</text>
+                        <polygon points="545,228 540,240 545,236 550,240" fill="#ff4444"/>
+                        <text x="560" y="238" fill="#ccc" font-size="10" data-svg-i18n="svg-second">Land (trigger)</text>
+                    </svg>
+                </div>
+                <p class="diagram-label" data-i18n="sit2-diagram">Situation 2: KLM987 cleared to Land while DLH123 is also cleared to Land on the same runway in the opposite direction</p>
+            </div>
+        </div>
+
+        <!-- Crossing/Converging Runways sub-heading -->
+        <h3 data-i18n="sub-crossing">Crossing/Converging Runways</h3>
+
+        <!-- Situation 3 -->
+        <div class="situation">
+            <div class="situation-header">
+                <span class="situation-number">3</span>
+                <span class="situation-title" data-i18n="sit3-title">Two Aircraft Cleared to Land with Converging Air Trajectories</span>
+            </div>
+            <div class="situation-body">
+                <p class="situation-description" data-i18n="sit3-desc">
+                    If both <span class="callsign">KLM987</span> and
+                    <span class="callsign">DLH123</span> are given
+                    <span class="av-term" data-tooltip="Clearance for landing">Cleared to Land</span> and have
+                    <strong>converging air trajectories</strong> (this could be a local rule in case of both aircraft go around at the same time).
+                </p>
+                <span class="conflict-result">&#9888; CONFLICT</span>
+
+                <div class="diagram-container">
+                    <svg width="700" height="320" viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Grass background -->
+                        <rect x="0" y="0" width="700" height="320" fill="#2d4a2d" rx="8"/>
+
+                        <!-- Runway 1 (horizontal) -->
+                        <rect x="50" y="140" width="600" height="50" fill="#555" rx="4"/>
+                        <rect x="50" y="162" width="600" height="6" fill="#fff" opacity="0.3"/>
+                        <text x="58" y="172" fill="white" font-size="13" font-weight="bold">09</text>
+                        <text x="626" y="172" fill="white" font-size="13" font-weight="bold">27</text>
+
+                        <!-- Runway 2 (diagonal, converging) -->
+                        <g transform="translate(380, 165) rotate(-50)">
+                            <rect x="-180" y="-25" width="360" height="50" fill="#555" rx="4" opacity="0.85"/>
+                            <rect x="-180" y="-2" width="360" height="6" fill="#fff" opacity="0.3"/>
+                        </g>
+                        <text x="240" y="30" fill="white" font-size="13" font-weight="bold">36</text>
+                        <text x="485" y="305" fill="white" font-size="13" font-weight="bold">18</text>
+
+                        <!-- KLM987 (Land - existing, green) approaching on horizontal runway from left -->
+                        <g transform="translate(140, 165)">
+                            <polygon points="12,0 -8,-5 -4,0 -8,5" fill="#00cc44" stroke="#00ff55" stroke-width="1"/>
+                        </g>
+                        <rect x="105" y="138" width="58" height="18" fill="rgba(0,0,0,0.7)" rx="3"/>
+                        <text x="110" y="151" fill="#00ff55" font-size="11" font-weight="bold" font-family="monospace">KLM987</text>
+                        <text x="110" y="133" fill="#aaa" font-size="9" data-svg-i18n="svg-land-existing">LAND</text>
+
+                        <!-- KLM987 approach arrow -->
+                        <line x1="155" y1="165" x2="300" y2="165" stroke="#00cc44" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+                        <polygon points="305,165 295,160 295,170" fill="#00cc44" opacity="0.5"/>
+
+                        <!-- DLH123 (Land - trigger, red) approaching on converging runway -->
+                        <g transform="translate(305, 75)">
+                            <polygon points="4,12 -1,-8 4,-4 9,-8" fill="#ff4444" stroke="#ff6666" stroke-width="1"/>
+                        </g>
+                        <rect x="320" y="62" width="55" height="18" fill="rgba(0,0,0,0.7)" rx="3"/>
+                        <text x="325" y="75" fill="#ff6666" font-size="11" font-weight="bold" font-family="monospace">DLH123</text>
+                        <text x="325" y="55" fill="#aaa" font-size="9" data-svg-i18n="svg-land-trigger">LAND</text>
+
+                        <!-- DLH123 approach arrow toward intersection -->
+                        <line x1="309" y1="90" x2="345" y2="140" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+                        <polygon points="348,144 338,138 344,148" fill="#ff4444" opacity="0.5"/>
+
+                        <!-- Converging trajectories label -->
+                        <text x="400" y="100" fill="#ff8888" font-size="9" font-weight="bold" opacity="0.7" data-svg-i18n="svg-converging">CONVERGING TRAJECTORIES</text>
+
+                        <!-- Conflict zone at intersection -->
+                        <circle cx="370" cy="165" r="16" fill="none" stroke="#ff4444" stroke-width="2.5" opacity="0.7"/>
+                        <text x="365" y="170" fill="#ff4444" font-size="14" font-weight="bold">!</text>
+
+                        <!-- CONFLICT label -->
+                        <rect x="100" y="6" width="120" height="24" fill="rgba(255,68,68,0.15)" stroke="#ff4444" stroke-width="1.5" rx="5"/>
+                        <text x="118" y="23" fill="#ff4444" font-size="12" font-weight="bold">CONFLICT</text>
+
+                        <!-- Legend -->
+                        <rect x="530" y="250" width="160" height="50" fill="rgba(0,0,0,0.5)" rx="5"/>
+                        <polygon points="545,263 540,275 545,271 550,275" fill="#00cc44"/>
+                        <text x="560" y="273" fill="#ccc" font-size="10" data-svg-i18n="svg-first">Land (existing)</text>
+                        <polygon points="545,283 540,295 545,291 550,295" fill="#ff4444"/>
+                        <text x="560" y="293" fill="#ccc" font-size="10" data-svg-i18n="svg-second">Land (trigger)</text>
+                    </svg>
+                </div>
+                <p class="diagram-label" data-i18n="sit3-diagram">Situation 3: KLM987 and DLH123 both cleared to Land with converging air trajectories</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exemptions -->
+    <section class="card">
+        <h2><span class="icon">&#9989;</span> <span data-i18n="section-exemptions">Exemptions to the Rule</span></h2>
+        <ul class="exemption-list">
+            <li>
+                <span class="exemption-number">1</span>
+                <div data-i18n="exemption1">
+                    Local procedures may allow multiple landing Clearances to be given, this can be based on one or more of the following:
+                    <ul style="margin-top:0.5rem; padding-left:1.2rem;">
+                        <li>the positions of the aircraft.</li>
+                        <li>the weather conditions.</li>
+                        <li>A locally approved algorithm which predicts that the preceding aircraft will have vacated the runway when the following aircraft crosses the runway threshold.</li>
+                    </ul>
+                    <span class="no-alert-badge">&#10003; NO ALERT</span>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Summary Table -->
+    <section class="card">
+        <h2><span class="icon">&#128203;</span> <span data-i18n="section-ref">Quick Reference</span></h2>
+        <table style="width:100%; border-collapse:collapse; font-size:0.9rem;">
+            <thead>
+                <tr style="background:#eef2ff;">
+                    <th style="padding:0.7rem; text-align:left; border-bottom:2px solid var(--border);" data-i18n="th-situation">Situation</th>
+                    <th style="padding:0.7rem; text-align:left; border-bottom:2px solid var(--border);" data-i18n="th-description">Description</th>
+                    <th style="padding:0.7rem; text-align:center; border-bottom:2px solid var(--border);" data-i18n="th-alert">Alert</th>
+                    <th style="padding:0.7rem; text-align:left; border-bottom:2px solid var(--border);" data-i18n="th-exemption">Exemption</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);">1</td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);" data-i18n="td-desc1">Two aircraft cleared to land on the same runway</td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border); text-align:center;">
+                        <span class="conflict-result">CONFLICT</span>
+                    </td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);" data-i18n="td-ex1">Local procedures (position, weather, algorithm)</td>
+                </tr>
+                <tr>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);">2</td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);" data-i18n="td-desc2">Two aircraft cleared to land, opposite directions</td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border); text-align:center;">
+                        <span class="conflict-result">CONFLICT</span>
+                    </td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);" data-i18n="td-ex2">Local procedures (position, weather, algorithm)</td>
+                </tr>
+                <tr>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);">3</td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);" data-i18n="td-desc3">Two aircraft cleared to land, converging trajectories</td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border); text-align:center;">
+                        <span class="conflict-result">CONFLICT</span>
+                    </td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);" data-i18n="td-ex3">Local procedures (position, weather, algorithm)</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Footer nav (injected by shared.js) -->
+    <div id="footer-nav-root"></div>
+
+</div>
+
+<footer>
+    <p data-i18n="footer1">EUROCONTROL Specification for A-SMGCS Services &mdash; Edition 2.0 &mdash; Appendix B</p>
+    <p style="margin-top:0.3rem;" data-i18n="footer2">CATC (Conflicting ATC Clearances) Scenario Documentation</p>
+</footer>
+
+<script src="js/scenarios.js"></script>
+<script src="js/shared.js"></script>
+<script>
+var pageTranslations = {
+    en: {
+        'nav-badge': 'Scenario 16 / 22',
+        'nav-prev': '&larr; Prev',
+        'nav-next': 'Next &rarr;',
+        'hero-subtitle': 'An aircraft is cleared to Land while another aircraft is also cleared to Land on the same or crossing/converging runways',
+        'tag-clearances': 'Clearances',
+        'tag-runway': 'Assigned Runway/s',
+        'tag-hp': 'Holding Point',
+        'tag-surv': 'Surveillance',
+        'sub-single': 'Single Runway',
+        'sit1-title': 'Two Aircraft Cleared to Land on the Same Runway',
+        'sit1-desc': 'If <span class="callsign">AZA456</span> is given <span class="av-term" data-tooltip="Clearance for landing">Cleared to Land</span> and <span class="callsign">IBE789</span> is given <span class="av-term" data-tooltip="Clearance for landing">Cleared to Land</span> on the same runway.',
+        'sit1-diagram': 'Situation 1: AZA456 cleared to Land while IBE789 is also cleared to Land on the same runway',
+        'sit2-title': 'Two Aircraft Cleared to Land in Opposite Directions',
+        'sit2-desc': 'If <span class="callsign">KLM987</span> is given <span class="av-term" data-tooltip="Clearance for landing">Cleared to Land</span> and <span class="callsign">DLH123</span> is given <span class="av-term" data-tooltip="Clearance for landing">Cleared to Land</span> on the same runway in the opposite direction.',
+        'sit2-diagram': 'Situation 2: KLM987 cleared to Land while DLH123 is also cleared to Land on the same runway in the opposite direction',
+        'sub-crossing': 'Crossing/Converging Runways',
+        'sit3-title': 'Two Aircraft Cleared to Land with Converging Air Trajectories',
+        'sit3-desc': 'If both <span class="callsign">KLM987</span> and <span class="callsign">DLH123</span> are given <span class="av-term" data-tooltip="Clearance for landing">Cleared to Land</span> and have <strong>converging air trajectories</strong> (this could be a local rule in case of both aircraft go around at the same time).',
+        'sit3-diagram': 'Situation 3: KLM987 and DLH123 both cleared to Land with converging air trajectories',
+        'exemption1': 'Local procedures may allow multiple landing Clearances to be given, this can be based on one or more of the following: <ul style="margin-top:0.5rem; padding-left:1.2rem;"><li>the positions of the aircraft.</li><li>the weather conditions.</li><li>A locally approved algorithm which predicts that the preceding aircraft will have vacated the runway when the following aircraft crosses the runway threshold.</li></ul> <span class="no-alert-badge">&#10003; NO ALERT</span>',
+        'td-desc1': 'Two aircraft cleared to land on the same runway',
+        'td-desc2': 'Two aircraft cleared to land, opposite directions',
+        'td-desc3': 'Two aircraft cleared to land, converging trajectories',
+        'td-ex1': 'Local procedures (position, weather, algorithm)',
+        'td-ex2': 'Local procedures (position, weather, algorithm)',
+        'td-ex3': 'Local procedures (position, weather, algorithm)',
+        'btn-prev': '&larr; Land vs Take-Off',
+        'btn-next': 'Next: Push-Back vs Push-Back &rarr;',
+        'svg-land-existing': 'LAND',
+        'svg-land-trigger': 'LAND',
+        'svg-opposite': 'OPPOSITE DIRECTION',
+        'svg-converging': 'CONVERGING TRAJECTORIES',
+        'svg-first': 'Land (existing)',
+        'svg-second': 'Land (trigger)'
+    },
+    tr: {
+        'nav-badge': 'Senaryo 16 / 22',
+        'nav-prev': '&larr; \u00d6nceki',
+        'nav-next': 'Sonraki &rarr;',
+        'hero-subtitle': 'Bir hava arac\u0131na ini\u015f izni verilirken, ayn\u0131 veya kesi\u015fen/yak\u0131nsayan pistlerde ba\u015fka bir hava arac\u0131na da ini\u015f izni veriliyor',
+        'tag-clearances': 'Clearances',
+        'tag-runway': 'Assigned Runway/s',
+        'tag-hp': 'Holding Point',
+        'tag-surv': 'Surveillance',
+        'sub-single': 'Tek Pist',
+        'sit1-title': 'Ayn\u0131 Pistte \u0130ki U\u00e7a\u011fa \u0130ni\u015f \u0130zni',
+        'sit1-desc': '<span class="callsign">AZA456</span>\'ya <span class="av-term" data-tooltip="\u0130ni\u015f izni">\u0130ni\u015f \u0130zni</span> verildiyse ve <span class="callsign">IBE789</span>\'a ayn\u0131 pistte <span class="av-term" data-tooltip="\u0130ni\u015f izni">\u0130ni\u015f \u0130zni</span> verildiyse.',
+        'sit1-diagram': 'Durum 1: AZA456\'ya ini\u015f izni verilirken IBE789\'a da ayn\u0131 pistte ini\u015f izni veriliyor',
+        'sit2-title': 'Kar\u015f\u0131 Y\u00f6nlerde \u0130ki U\u00e7a\u011fa \u0130ni\u015f \u0130zni',
+        'sit2-desc': '<span class="callsign">KLM987</span>\'ye <span class="av-term" data-tooltip="\u0130ni\u015f izni">\u0130ni\u015f \u0130zni</span> verildiyse ve <span class="callsign">DLH123</span>\'e ayn\u0131 pistte kar\u015f\u0131 y\u00f6nde <span class="av-term" data-tooltip="\u0130ni\u015f izni">\u0130ni\u015f \u0130zni</span> verildiyse.',
+        'sit2-diagram': 'Durum 2: KLM987\'ye ini\u015f izni verilirken DLH123\'e ayn\u0131 pistte kar\u015f\u0131 y\u00f6nde ini\u015f izni veriliyor',
+        'sub-crossing': 'Kesi\u015fen/Yak\u0131nsayan Pistler',
+        'sit3-title': 'Yak\u0131nsayan Hava Rotalar\u0131yla \u0130ki U\u00e7a\u011fa \u0130ni\u015f \u0130zni',
+        'sit3-desc': 'Hem <span class="callsign">KLM987</span>\'ye hem de <span class="callsign">DLH123</span>\'e <span class="av-term" data-tooltip="\u0130ni\u015f izni">\u0130ni\u015f \u0130zni</span> verildiyse ve <strong>yak\u0131nsayan hava rotalar\u0131</strong> varsa (bu, her iki u\u00e7a\u011f\u0131n ayn\u0131 anda pas ge\u00e7me yapmas\u0131 durumunda yerel bir kural olabilir).',
+        'sit3-diagram': 'Durum 3: KLM987 ve DLH123\'e yak\u0131nsayan hava rotalar\u0131yla ini\u015f izni veriliyor',
+        'exemption1': 'Yerel prosed\u00fcrler birden fazla ini\u015f izninin verilmesine izin verebilir. Bu, a\u015fa\u011f\u0131dakilerden birine veya birka\u00e7\u0131na dayanabilir: <ul style="margin-top:0.5rem; padding-left:1.2rem;"><li>u\u00e7aklar\u0131n pozisyonlar\u0131.</li><li>hava ko\u015fullar\u0131.</li><li>\u00d6ndeki u\u00e7a\u011f\u0131n, arkadaki u\u00e7ak pist e\u015fi\u011fini ge\u00e7ti\u011finde pisti terk etmi\u015f olaca\u011f\u0131n\u0131 \u00f6ng\u00f6ren yerel onaylanan bir algoritma.</li></ul> <span class="no-alert-badge">&#10003; ALARM YOK</span>',
+        'td-desc1': 'Ayn\u0131 pistte iki u\u00e7a\u011fa ini\u015f izni',
+        'td-desc2': 'Kar\u015f\u0131 y\u00f6nlerde iki u\u00e7a\u011fa ini\u015f izni',
+        'td-desc3': 'Yak\u0131nsayan rotalarla iki u\u00e7a\u011fa ini\u015f izni',
+        'td-ex1': 'Yerel prosed\u00fcrler (pozisyon, hava, algoritma)',
+        'td-ex2': 'Yerel prosed\u00fcrler (pozisyon, hava, algoritma)',
+        'td-ex3': 'Yerel prosed\u00fcrler (pozisyon, hava, algoritma)',
+        'btn-prev': '&larr; Land vs Take-Off',
+        'btn-next': 'Sonraki: Push-Back vs Push-Back &rarr;',
+        'svg-land-existing': '\u0130N\u0130\u015e',
+        'svg-land-trigger': '\u0130N\u0130\u015e',
+        'svg-opposite': 'KAR\u015eI Y\u00d6N',
+        'svg-converging': 'YAKIN\u015eAN ROTALAR',
+        'svg-first': '\u0130ni\u015f (mevcut talimat)',
+        'svg-second': '\u0130ni\u015f (tetikleyici)'
+    }
+};
+var pageTooltips = {
+    en: {
+        'Clearances': 'Instructions issued by ATC',
+        'Assigned Runway/s': 'Designated runway for operations',
+        'Holding Point': 'Waiting point before runway entry',
+        'Surveillance': 'Radar/tracking data'
+    },
+    tr: {
+        'Clearances': 'ATC tarafindan verilen talimatlar',
+        'Assigned Runway/s': 'Operasyonlar icin atanmis pist',
+        'Holding Point': 'Piste girmeden onceki bekleme noktasi',
+        'Surveillance': 'Radar/gozetim verisi'
+    }
+};
+initScenario();
+</script>
+
+</body>
+</html>

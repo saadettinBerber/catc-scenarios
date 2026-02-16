@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CATC Scenario 13 - Land vs Line-Up</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body data-scenario="13">
+
+<!-- Sidebar (injected by shared.js) -->
+<div id="sidebar-root"></div>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div style="display:flex; align-items:center; gap:0.8rem;">
+        <button class="sidebar-toggle" onclick="toggleSidebar()">&#9776; <span class="sidebar-toggle-label" data-i18n="nav-scenarios">Scenarios</span></button>
+        <a href="index.html" data-i18n="nav-home" style="color:white; text-decoration:none; font-size:0.9rem; opacity:0.85;">CATC Scenarios</a>
+    </div>
+    <div class="nav-links">
+        <div class="lang-toggle">
+            <button class="lang-btn active" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" onclick="setLang('tr')">TR</button>
+        </div>
+        <span class="scenario-badge" id="scenario-badge">Scenario 13 / 22</span>
+        <a id="nav-prev" href="12-takeoff-vs-land.html">&larr; Prev</a>
+        <a id="nav-next" class="disabled">Next &rarr;</a>
+    </div>
+</nav>
+
+<!-- Pagination (injected by shared.js) -->
+<div id="pagination-root"></div>
+
+<!-- Hero -->
+<header class="hero">
+    <h1>Land vs Line-Up</h1>
+    <p class="subtitle" data-i18n="hero-subtitle">An aircraft is cleared to Land while another aircraft is given Line-Up on the same runway</p>
+    <div class="clearance-tags">
+        <span class="clearance-tag">LAND <span class="vs">vs</span> LINE-UP</span>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- Data Required -->
+    <section class="card">
+        <h2><span class="icon">&#128202;</span> <span data-i18n="section-data">Data Required</span></h2>
+        <div class="data-tags">
+            <span class="data-tag av-term" data-tooltip="Instructions issued by ATC" data-i18n="tag-clearances">Clearances</span>
+            <span class="data-tag av-term" data-tooltip="Designated runway for operation" data-i18n="tag-runway">Assigned Runway</span>
+            <span class="data-tag av-term" data-tooltip="Waiting point before runway entry" data-i18n="tag-hp">Holding Point</span>
+            <span class="data-tag av-term" data-tooltip="Radar/tracking data" data-i18n="tag-surv">Surveillance</span>
+        </div>
+    </section>
+
+    <!-- General Rule -->
+    <section class="card">
+        <h2><span class="icon">&#9888;&#65039;</span> <span data-i18n="section-rule">General Rule</span></h2>
+        <div class="rule-box" data-i18n="rule-text">
+            <strong>Important:</strong> In each scenario, it is deemed that the <strong>first Clearance</strong> in the heading title is the one that has been input by the Controller first and the <strong>second Clearance triggers</strong> the alert.
+        </div>
+    </section>
+
+    <!-- Alert Triggered -->
+    <section class="card">
+        <h2><span class="icon">&#128680;</span> <span data-i18n="section-alert">Alert Triggered</span></h2>
+
+        <!-- Situation 1 -->
+        <div class="situation">
+            <div class="situation-header">
+                <span class="situation-number">1</span>
+                <span class="situation-title" data-i18n="sit1-title">Landing while Line-Up on Same Runway</span>
+            </div>
+            <div class="situation-body">
+                <p class="situation-description" data-i18n="sit1-desc">
+                    If <span class="callsign">IBE789</span> is given
+                    <span class="av-term" data-tooltip="Clearance for landing">Cleared to Land</span> and
+                    <span class="callsign">KLM789</span> is given
+                    <span class="av-term" data-tooltip="Clearance to enter and line up on the runway">Line-Up</span>
+                    on the same runway.
+                </p>
+                <span class="conflict-result">&#9888; CONFLICT</span>
+
+                <div class="diagram-container">
+                    <svg width="700" height="280" viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Grass background -->
+                        <rect x="0" y="0" width="700" height="280" fill="#2d4a2d" rx="8"/>
+
+                        <!-- Runway -->
+                        <rect x="50" y="110" width="600" height="60" fill="#555" rx="4"/>
+                        <rect x="50" y="137" width="600" height="6" fill="#fff" opacity="0.3"/>
+                        <!-- Runway dashes -->
+                        <line x1="90" y1="140" x2="120" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="150" y1="140" x2="180" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="210" y1="140" x2="240" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="270" y1="140" x2="300" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="330" y1="140" x2="360" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="390" y1="140" x2="420" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="450" y1="140" x2="480" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="510" y1="140" x2="540" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="570" y1="140" x2="600" y2="140" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+
+                        <!-- Runway labels -->
+                        <text x="58" y="147" fill="white" font-size="14" font-weight="bold">05</text>
+                        <text x="626" y="147" fill="white" font-size="14" font-weight="bold">23</text>
+
+                        <!-- Holding Point South - KLM789 -->
+                        <rect x="380" y="170" width="30" height="55" fill="#6b8a4a" rx="2"/>
+                        <line x1="375" y1="170" x2="415" y2="170" stroke="#ffcc00" stroke-width="3"/>
+                        <text x="358" y="240" fill="#ffcc00" font-size="10" font-weight="bold" data-svg-i18n="svg-hp-klm">HP (KLM789)</text>
+
+                        <!-- KLM789 (Line-Up - trigger, red) at holding point -->
+                        <g transform="translate(395, 200)">
+                            <polygon points="0,-12 -5,8 0,4 5,8" fill="#ff4444" stroke="#ff6666" stroke-width="1"/>
+                        </g>
+                        <rect x="410" y="190" width="58" height="18" fill="rgba(0,0,0,0.7)" rx="3"/>
+                        <text x="415" y="203" fill="#ff6666" font-size="11" font-weight="bold" font-family="monospace">KLM789</text>
+                        <text x="415" y="183" fill="#aaa" font-size="9" data-svg-i18n="svg-lineup">LINE-UP</text>
+
+                        <!-- KLM789 line-up arrow onto runway -->
+                        <line x1="395" y1="195" x2="395" y2="175" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+                        <polygon points="395,170 390,180 400,180" fill="#ff4444" opacity="0.5"/>
+
+                        <!-- IBE789 (Land - existing, green) approaching from right -->
+                        <g transform="translate(600, 140)">
+                            <polygon points="-12,0 8,-5 4,0 8,5" fill="#00cc44" stroke="#00ff55" stroke-width="1"/>
+                        </g>
+                        <rect x="570" y="113" width="55" height="18" fill="rgba(0,0,0,0.7)" rx="3"/>
+                        <text x="575" y="126" fill="#00ff55" font-size="11" font-weight="bold" font-family="monospace">IBE789</text>
+                        <text x="575" y="108" fill="#aaa" font-size="9" data-svg-i18n="svg-land">LAND</text>
+
+                        <!-- IBE789 approach arrow -->
+                        <line x1="585" y1="140" x2="460" y2="140" stroke="#00cc44" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+                        <polygon points="455,140 465,135 465,145" fill="#00cc44" opacity="0.5"/>
+
+                        <!-- Conflict zone -->
+                        <circle cx="395" cy="140" r="14" fill="none" stroke="#ff4444" stroke-width="2.5" opacity="0.7"/>
+                        <text x="390" y="145" fill="#ff4444" font-size="14" font-weight="bold">!</text>
+
+                        <!-- CONFLICT label -->
+                        <rect x="100" y="6" width="120" height="24" fill="rgba(255,68,68,0.15)" stroke="#ff4444" stroke-width="1.5" rx="5"/>
+                        <text x="118" y="23" fill="#ff4444" font-size="12" font-weight="bold">CONFLICT</text>
+
+                        <!-- Legend -->
+                        <rect x="530" y="215" width="160" height="50" fill="rgba(0,0,0,0.5)" rx="5"/>
+                        <polygon points="545,228 540,240 545,236 550,240" fill="#00cc44"/>
+                        <text x="560" y="238" fill="#ccc" font-size="10" data-svg-i18n="svg-first">Land (existing)</text>
+                        <polygon points="545,248 540,260 545,256 550,260" fill="#ff4444"/>
+                        <text x="560" y="258" fill="#ccc" font-size="10" data-svg-i18n="svg-second">Line-Up (trigger)</text>
+                    </svg>
+                </div>
+                <p class="diagram-label" data-i18n="sit1-diagram">Situation 1: IBE789 cleared to Land while KLM789 is given Line-Up on the same runway</p>
+            </div>
+        </div>
+
+        <!-- Situation 2 -->
+        <div class="situation">
+            <div class="situation-header">
+                <span class="situation-number">2</span>
+                <span class="situation-title" data-i18n="sit2-title">Landing while Line-Up in Opposite Direction</span>
+            </div>
+            <div class="situation-body">
+                <p class="situation-description" data-i18n="sit2-desc">
+                    If <span class="callsign">IBE789</span> is given
+                    <span class="av-term" data-tooltip="Clearance for landing">Cleared to Land</span> and
+                    <span class="callsign">IBE987</span> is given
+                    <span class="av-term" data-tooltip="Clearance to enter and line up on the runway">Line-Up</span>
+                    on the same runway in the opposite direction.
+                </p>
+                <span class="conflict-result">&#9888; CONFLICT</span>
+
+                <div class="diagram-container">
+                    <svg width="700" height="260" viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Grass background -->
+                        <rect x="0" y="0" width="700" height="260" fill="#2d4a2d" rx="8"/>
+
+                        <!-- Runway -->
+                        <rect x="50" y="100" width="600" height="60" fill="#555" rx="4"/>
+                        <rect x="50" y="127" width="600" height="6" fill="#fff" opacity="0.3"/>
+                        <!-- Runway dashes -->
+                        <line x1="90" y1="130" x2="120" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="150" y1="130" x2="180" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="210" y1="130" x2="240" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="270" y1="130" x2="300" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="330" y1="130" x2="360" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="390" y1="130" x2="420" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="450" y1="130" x2="480" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="510" y1="130" x2="540" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+                        <line x1="570" y1="130" x2="600" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4,4"/>
+
+                        <!-- Runway labels -->
+                        <text x="58" y="137" fill="white" font-size="14" font-weight="bold">05</text>
+                        <text x="626" y="137" fill="white" font-size="14" font-weight="bold">23</text>
+
+                        <!-- IBE789 (Land - existing, green) approaching from right heading left -->
+                        <g transform="translate(560, 130)">
+                            <polygon points="-12,0 8,-5 4,0 8,5" fill="#00cc44" stroke="#00ff55" stroke-width="1"/>
+                        </g>
+                        <rect x="530" y="103" width="55" height="18" fill="rgba(0,0,0,0.7)" rx="3"/>
+                        <text x="535" y="116" fill="#00ff55" font-size="11" font-weight="bold" font-family="monospace">IBE789</text>
+                        <text x="535" y="98" fill="#aaa" font-size="9" data-svg-i18n="svg-land">LAND</text>
+
+                        <!-- IBE789 approach arrow (heading left) -->
+                        <line x1="545" y1="130" x2="420" y2="130" stroke="#00cc44" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+                        <polygon points="415,130 425,125 425,135" fill="#00cc44" opacity="0.5"/>
+
+                        <!-- IBE987 (Line-Up - trigger, red) lined up heading right (opposite direction) -->
+                        <g transform="translate(180, 130)">
+                            <polygon points="12,0 -8,-5 -4,0 -8,5" fill="#ff4444" stroke="#ff6666" stroke-width="1"/>
+                        </g>
+                        <rect x="145" y="103" width="55" height="18" fill="rgba(0,0,0,0.7)" rx="3"/>
+                        <text x="150" y="116" fill="#ff6666" font-size="11" font-weight="bold" font-family="monospace">IBE987</text>
+                        <text x="150" y="98" fill="#aaa" font-size="9" data-svg-i18n="svg-lineup">LINE-UP</text>
+
+                        <!-- Opposite direction indicator -->
+                        <text x="290" y="95" fill="#ff8888" font-size="10" font-weight="bold" opacity="0.7" data-svg-i18n="svg-opposite">OPPOSITE DIRECTION</text>
+
+                        <!-- Conflict zone -->
+                        <circle cx="370" cy="130" r="14" fill="none" stroke="#ff4444" stroke-width="2.5" opacity="0.7"/>
+                        <text x="365" y="135" fill="#ff4444" font-size="14" font-weight="bold">!</text>
+
+                        <!-- CONFLICT label -->
+                        <rect x="100" y="6" width="120" height="24" fill="rgba(255,68,68,0.15)" stroke="#ff4444" stroke-width="1.5" rx="5"/>
+                        <text x="118" y="23" fill="#ff4444" font-size="12" font-weight="bold">CONFLICT</text>
+
+                        <!-- Legend -->
+                        <rect x="530" y="195" width="160" height="50" fill="rgba(0,0,0,0.5)" rx="5"/>
+                        <polygon points="545,208 540,220 545,216 550,220" fill="#00cc44"/>
+                        <text x="560" y="218" fill="#ccc" font-size="10" data-svg-i18n="svg-first">Land (existing)</text>
+                        <polygon points="545,228 540,240 545,236 550,240" fill="#ff4444"/>
+                        <text x="560" y="238" fill="#ccc" font-size="10" data-svg-i18n="svg-second">Line-Up (trigger)</text>
+                    </svg>
+                </div>
+                <p class="diagram-label" data-i18n="sit2-diagram">Situation 2: IBE789 cleared to Land while IBE987 is given Line-Up on the same runway in the opposite direction</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exemptions -->
+    <section class="card">
+        <h2><span class="icon">&#9989;</span> <span data-i18n="section-exemptions">Exemptions to the Rule</span></h2>
+        <ul class="exemption-list">
+            <li>
+                <span class="exemption-number">1</span>
+                <div data-i18n="exemption1">
+                    If the position that <span class="callsign">KLM789</span> is lining up from is behind the actual position of <span class="callsign">IBE789</span>, then no alert is triggered. This allows the Controller to maintain a high runway throughput.
+                    <span class="no-alert-badge">&#10003; NO ALERT</span>
+                </div>
+            </li>
+            <li>
+                <span class="exemption-number">2</span>
+                <div data-i18n="exemption2">
+                    Additionally the use of Conditional Line-Up Clearances will not trigger an alert. However, once an aircraft has completed its Conditional Line-Up, the system must assign the status Line-Up to that aircraft. As a result the aircraft will then be subject to the CATC rules for Line-Up vs Line-Up/Cross or Enter/Take-Off/Land.
+                    <span class="no-alert-badge">&#10003; NO ALERT</span>
+                </div>
+            </li>
+            <li>
+                <span class="exemption-number">3</span>
+                <div data-i18n="exemption3">
+                    Local procedures may permit the situation where <span class="callsign">IBE789</span> has landed and is still on the runway and is moving below a specified speed and is a certain distance from <span class="callsign">IBE987</span> and the Controller is confident that the aircraft will vacate before the Line-Up point of <span class="callsign">IBE987</span>. In this case surveillance, holding point and route are needed to determine whether to trigger an alert or not.
+                    <span class="no-alert-badge">&#10003; NO ALERT</span>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Summary Table -->
+    <section class="card">
+        <h2><span class="icon">&#128203;</span> <span data-i18n="section-ref">Quick Reference</span></h2>
+        <table style="width:100%; border-collapse:collapse; font-size:0.9rem;">
+            <thead>
+                <tr style="background:#eef2ff;">
+                    <th style="padding:0.7rem; text-align:left; border-bottom:2px solid var(--border);" data-i18n="th-situation">Situation</th>
+                    <th style="padding:0.7rem; text-align:left; border-bottom:2px solid var(--border);" data-i18n="th-description">Description</th>
+                    <th style="padding:0.7rem; text-align:center; border-bottom:2px solid var(--border);" data-i18n="th-alert">Alert</th>
+                    <th style="padding:0.7rem; text-align:left; border-bottom:2px solid var(--border);" data-i18n="th-exemption">Exemption</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);">1</td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);" data-i18n="td-desc1">Landing while Line-Up on same runway</td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border); text-align:center;">
+                        <span class="conflict-result">CONFLICT</span>
+                    </td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);" data-i18n="td-ex1">Line-Up from behind landing position; Conditional Line-Up</td>
+                </tr>
+                <tr>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);">2</td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);" data-i18n="td-desc2">Landing while Line-Up in opposite direction</td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border); text-align:center;">
+                        <span class="conflict-result">CONFLICT</span>
+                    </td>
+                    <td style="padding:0.6rem; border-bottom:1px solid var(--border);" data-i18n="td-ex2">Local procedures (speed, distance, vacating confidence)</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Footer nav (injected by shared.js) -->
+    <div id="footer-nav-root"></div>
+
+</div>
+
+<footer>
+    <p data-i18n="footer1">EUROCONTROL Specification for A-SMGCS Services &mdash; Edition 2.0 &mdash; Appendix B</p>
+    <p style="margin-top:0.3rem;" data-i18n="footer2">CATC (Conflicting ATC Clearances) Scenario Documentation</p>
+</footer>
+
+<script src="js/scenarios.js"></script>
+<script src="js/shared.js"></script>
+<script>
+var pageTranslations = {
+    en: {
+        'nav-badge': 'Scenario 13 / 22',
+        'nav-prev': '&larr; Prev',
+        'nav-next': 'Next &rarr;',
+        'hero-subtitle': 'An aircraft is cleared to Land while another aircraft is given Line-Up on the same runway',
+        'tag-clearances': 'Clearances',
+        'tag-runway': 'Assigned Runway',
+        'tag-hp': 'Holding Point',
+        'tag-surv': 'Surveillance',
+        'sit1-title': 'Landing while Line-Up on Same Runway',
+        'sit1-desc': 'If <span class="callsign">IBE789</span> is given <span class="av-term" data-tooltip="Clearance for landing">Cleared to Land</span> and <span class="callsign">KLM789</span> is given <span class="av-term" data-tooltip="Clearance to enter and line up on the runway">Line-Up</span> on the same runway.',
+        'sit1-diagram': 'Situation 1: IBE789 cleared to Land while KLM789 is given Line-Up on the same runway',
+        'sit2-title': 'Landing while Line-Up in Opposite Direction',
+        'sit2-desc': 'If <span class="callsign">IBE789</span> is given <span class="av-term" data-tooltip="Clearance for landing">Cleared to Land</span> and <span class="callsign">IBE987</span> is given <span class="av-term" data-tooltip="Clearance to enter and line up on the runway">Line-Up</span> on the same runway in the opposite direction.',
+        'sit2-diagram': 'Situation 2: IBE789 cleared to Land while IBE987 is given Line-Up on the same runway in the opposite direction',
+        'exemption1': 'If the position that <span class="callsign">KLM789</span> is lining up from is behind the actual position of <span class="callsign">IBE789</span>, then no alert is triggered. This allows the Controller to maintain a high runway throughput. <span class="no-alert-badge">&#10003; NO ALERT</span>',
+        'exemption2': 'Additionally the use of Conditional Line-Up Clearances will not trigger an alert. However, once an aircraft has completed its Conditional Line-Up, the system must assign the status Line-Up to that aircraft. As a result the aircraft will then be subject to the CATC rules for Line-Up vs Line-Up/Cross or Enter/Take-Off/Land. <span class="no-alert-badge">&#10003; NO ALERT</span>',
+        'exemption3': 'Local procedures may permit the situation where <span class="callsign">IBE789</span> has landed and is still on the runway and is moving below a specified speed and is a certain distance from <span class="callsign">IBE987</span> and the Controller is confident that the aircraft will vacate before the Line-Up point of <span class="callsign">IBE987</span>. In this case surveillance, holding point and route are needed to determine whether to trigger an alert or not. <span class="no-alert-badge">&#10003; NO ALERT</span>',
+        'td-desc1': 'Landing while Line-Up on same runway',
+        'td-desc2': 'Landing while Line-Up in opposite direction',
+        'td-ex1': 'Line-Up from behind landing position; Conditional Line-Up',
+        'td-ex2': 'Local procedures (speed, distance, vacating confidence)',
+        'btn-prev': '&larr; Take-Off vs Land',
+        'btn-next': 'Next: Land vs Cross/Enter &rarr;',
+        'svg-land': 'LAND',
+        'svg-lineup': 'LINE-UP',
+        'svg-hp-klm': 'HP (KLM789)',
+        'svg-opposite': 'OPPOSITE DIRECTION',
+        'svg-first': 'Land (existing)',
+        'svg-second': 'Line-Up (trigger)'
+    },
+    tr: {
+        'nav-badge': 'Senaryo 13 / 22',
+        'nav-prev': '&larr; \u00d6nceki',
+        'nav-next': 'Sonraki &rarr;',
+        'hero-subtitle': 'Bir hava arac\u0131na ini\u015f izni verilirken, ayn\u0131 pistte ba\u015fka bir hava arac\u0131na piste giri\u015f ve s\u0131ralanma izni veriliyor',
+        'tag-clearances': 'Clearances',
+        'tag-runway': 'Assigned Runway',
+        'tag-hp': 'Holding Point',
+        'tag-surv': 'Surveillance',
+        'sit1-title': 'Ayn\u0131 Pistte \u0130ni\u015f ve Piste Giri\u015f',
+        'sit1-desc': '<span class="callsign">IBE789</span>\'a <span class="av-term" data-tooltip="\u0130ni\u015f izni">\u0130ni\u015f \u0130zni</span> verildiyse ve <span class="callsign">KLM789</span>\'a ayn\u0131 pistte <span class="av-term" data-tooltip="Piste giri\u015f ve s\u0131ralanma izni">Piste Giri\u015f</span> izni verildiyse.',
+        'sit1-diagram': 'Durum 1: IBE789\'a ini\u015f izni verilirken KLM789\'a ayn\u0131 pistte piste giri\u015f izni veriliyor',
+        'sit2-title': 'Kar\u015f\u0131 Y\u00f6nde \u0130ni\u015f ve Piste Giri\u015f',
+        'sit2-desc': '<span class="callsign">IBE789</span>\'a <span class="av-term" data-tooltip="\u0130ni\u015f izni">\u0130ni\u015f \u0130zni</span> verildiyse ve <span class="callsign">IBE987</span>\'ye ayn\u0131 pistte kar\u015f\u0131 y\u00f6nde <span class="av-term" data-tooltip="Piste giri\u015f ve s\u0131ralanma izni">Piste Giri\u015f</span> izni verildiyse.',
+        'sit2-diagram': 'Durum 2: IBE789\'a ini\u015f izni verilirken IBE987\'ye ayn\u0131 pistte kar\u015f\u0131 y\u00f6nde piste giri\u015f izni veriliyor',
+        'exemption1': '<span class="callsign">KLM789</span>\'un piste giri\u015f yapaca\u011f\u0131 pozisyon, <span class="callsign">IBE789</span>\'un ger\u00e7ek pozisyonunun arkas\u0131nda ise alarm tetiklenmez. Bu, Kontrol\u00f6r\u00fcn y\u00fcksek pist verimini s\u00fcrd\u00fcrmesine olanak tan\u0131r. <span class="no-alert-badge">&#10003; ALARM YOK</span>',
+        'exemption2': 'Ayr\u0131ca Ko\u015fullu Piste Giri\u015f izinleri alarm tetiklemez. Ancak bir hava arac\u0131 Ko\u015fullu Piste Giri\u015fini tamamlad\u0131\u011f\u0131nda, sistem o hava arac\u0131na Piste Giri\u015f stat\u00fcs\u00fc atamal\u0131d\u0131r. Sonu\u00e7 olarak hava arac\u0131, Line-Up vs Line-Up/Cross or Enter/Take-Off/Land i\u00e7in CATC kurallar\u0131na tabi olacakt\u0131r. <span class="no-alert-badge">&#10003; ALARM YOK</span>',
+        'exemption3': 'Yerel prosed\u00fcrler, <span class="callsign">IBE789</span>\'un ini\u015f yapm\u0131\u015f ve hala pistte olup belirli bir h\u0131z\u0131n alt\u0131nda hareket etmesi ve <span class="callsign">IBE987</span>\'den belirli bir mesafede bulunmas\u0131 ve Kontrol\u00f6r\u00fcn hava arac\u0131n\u0131n <span class="callsign">IBE987</span>\'nin piste giri\u015f noktas\u0131ndan \u00f6nce pisti bo\u015faltaca\u011f\u0131ndan emin olmas\u0131 durumuna izin verebilir. Bu durumda alarm tetiklenip tetiklenmeyece\u011fini belirlemek i\u00e7in g\u00f6zetim, bekleme noktas\u0131 ve rota gereklidir. <span class="no-alert-badge">&#10003; ALARM YOK</span>',
+        'td-desc1': 'Ayn\u0131 pistte ini\u015f ve piste giri\u015f',
+        'td-desc2': 'Kar\u015f\u0131 y\u00f6nde ini\u015f ve piste giri\u015f',
+        'td-ex1': 'Piste giri\u015f ini\u015f pozisyonunun arkas\u0131ndan; Ko\u015fullu Piste Giri\u015f',
+        'td-ex2': 'Yerel prosed\u00fcrler (h\u0131z, mesafe, bo\u015faltma g\u00fcveni)',
+        'btn-prev': '&larr; Take-Off vs Land',
+        'btn-next': 'Sonraki: Land vs Cross/Enter &rarr;',
+        'svg-land': '\u0130N\u0130\u015e',
+        'svg-lineup': 'P\u0130STE G\u0130R\u0130\u015e',
+        'svg-hp-klm': 'HP (KLM789)',
+        'svg-opposite': 'KAR\u015eI Y\u00d6N',
+        'svg-first': '\u0130ni\u015f (mevcut talimat)',
+        'svg-second': 'Piste Giri\u015f (tetikleyici)'
+    }
+};
+var pageTooltips = {
+    en: {
+        'Clearances': 'Instructions issued by ATC',
+        'Assigned Runway': 'Designated runway for operation',
+        'Holding Point': 'Waiting point before runway entry',
+        'Surveillance': 'Radar/tracking data'
+    },
+    tr: {
+        'Clearances': 'ATC tarafindan verilen talimatlar',
+        'Assigned Runway': 'Atanmis pist bilgisi',
+        'Holding Point': 'Piste girmeden onceki bekleme noktasi',
+        'Surveillance': 'Radar/gozetim verisi'
+    }
+};
+initScenario();
+</script>
+
+</body>
+</html>
